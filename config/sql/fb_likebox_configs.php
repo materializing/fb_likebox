@@ -1,5 +1,4 @@
-<?php 
-/* SVN FILE: $Id$ */
+<?php
 /* FbLikeboxConfigs schema generated on: 2011-08-24 06:08:31 : 1314135031*/
 class FbLikeboxConfigsSchema extends CakeSchema {
 	var $name = 'FbLikeboxConfigs';

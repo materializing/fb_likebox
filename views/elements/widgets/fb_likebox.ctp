@@ -8,8 +8,6 @@
  * @package			fb_likebox.views
  * @since			Baser v 1.6.11.2
  * @version			1.1.0
- * @modifiedby		$LastChangedBy: arata $
- * @lastmodified	$Date: 2011/08/24 05:19:01
  * @license			GPL
  */
 $FbLikeboxConfig = ClassRegistry::init('FbLikebox.FbLikeboxConfig');

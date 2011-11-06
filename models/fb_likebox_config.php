@@ -8,33 +8,32 @@
  * @package			fb_likebox.models
  * @since			Baser v 1.6.11.2
  * @version			1.1.0
- * @modifiedby		$LastChangedBy: arata $
- * @lastmodified	$Date: 2011/08/24 05:19:01
  * @license			GPL
  */
 class FbLikeboxConfig extends AppModel {
 /**
  * モデル名
- * @var		string
- * @access	public
+ * @var string
+ * @access public
  */
 	var $name = 'FbLikeboxConfig';
 /**
  * プラグイン名
- * @var		string
- * @access 	public
+ * @var string
+ * @access public
  */
 	var $plugin = 'FbLikebox';
 /**
  * DB設定
- * @var		string
- * @access 	public
+ * @var string
+ * @access public
  */
 	var $useDbConfig = 'plugin';
 /**
- * バリデーション設定
- * @var		array
- * @access 	public
+ * バリデーション
+ *
+ * @var array
+ * @access public
  */
 	var $validate = array(
 			'page_url'	=> array(
@@ -59,8 +58,9 @@ class FbLikeboxConfig extends AppModel {
 	);
 /**
  * 表示設定値
- * @var		array
- * @access 	public
+ *
+ * @var array
+ * @access public
  */
 	var $color_scheme = array(
 		'1'		=>	'light',

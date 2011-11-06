@@ -8,35 +8,33 @@
  * @package			fb_likebox.controllers
  * @since			Baser v 1.6.11.2
  * @version			1.1.0
- * @modifiedby		$LastChangedBy: arata $
- * @lastmodified	$Date: 2011/08/24 05:19:01
  * @license			GPL
  */
 App::import('Controller', 'Plugins');
 class FbLikeboxConfigsController extends PluginsController {
 /**
  * コントローラー名
- * @var		string
- * @access	public
+ * @var string
+ * @access public
  */
 	var $name = 'FbLikeboxConfigs';
 /**
  * モデル
- * @var		array
- * @access	public
+ * @var array
+ * @access public
  */
 	var $uses = array('Plugin', 'FbLikebox.FbLikeboxConfig');
 /**
  * サブメニューエレメント
  *
- * @var 	array
- * @access 	public
+ * @var array
+ * @access public
  */
 	var $subMenuElements = array('fb_likebox');
 /**
  * Facebook LikeBoxプラグイン設定
- * @return	void
- * @access	public
+ * @return void
+ * @access public
  */
 	function admin_index() {
 
