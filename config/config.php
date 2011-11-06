@@ -7,7 +7,7 @@
  * @author			arata
  * @package			fb_likebox.config
  * @since			Baser v 1.6.11.2
- * @version			1.1.0
+ * @version			1.1.1
  * @modifiedby		$LastChangedBy: arata $
  * @lastmodified	$Date: 2011/08/24 05:19:01
  * @license			GPL
