@@ -2,22 +2,41 @@
 /**
  * [ADMIN] Facebook LikeBoxプラグイン設定画面
  *
- * @copyright		Copyright 2011 - 2012, materializing.
+ * @copyright		Copyright 2011, materializing.
  * @link			http://www.materializing.net/
  * @author			arata
  * @package			fb_likebox.views
- * @version			2.0.0
- * @license			MIT
+ * @since			Baser v 1.6.11.2
+ * @version			1.1.0
+ * @license			GPL
  */
 ?>
+<h2><?php $baser->contentsTitle() ?>
+&nbsp;<?php echo $html->image('img_icon_help_admin.gif',array('id'=>'helpFbLikebox','class'=>'slide-trigger','alt'=>'ヘルプ')) ?>
+</h2>
+
+<div class="help-box corner10 display-none" id="helpFbLikeboxBody">
+	<h4>ユーザーヘルプ</h4>
+	<p>サイトに表示するFacebook Likeboxの設定を行います。<br />
+		各項目のヘルプメッセージもご参照下さい。→ このアイコンをクリックでメッセージ ポップアップ <?php echo $html->image('img_icon_help_admin.gif',array('class' => 'help', 'alt' => 'ヘルプ')) ?></p>
+	<ul>
+		<li>Facebookアカウントの取得が前提です。また、事前にファンページ(ページ)を取得し、そのページのURLを取得しておいて下さい。 => <a href="http://www.facebook.com/" target="_blank">Facebook</a></li>
+		<li>保存した内容は、ページ下部の「現在の表示状態」にて確認出来ます。</li>
+		<li>稀に反映までに時間が掛かる事があります。<br />入力した内容がすぐに反映されない事があっても怒らないで下さい。</li>
+	</ul>
+</div>
+
+<h3>設定項目</h3>
+<p><small><span class="required">*</span> 印の項目は必須です。</small></p>
+
 <?php echo $formEx->create('FbLikeboxConfig', array('action' => 'index')) ?>
-<table cellpadding="0" cellspacing="0" class="list-table" id="ListTable">
+<table cellpadding="0" cellspacing="0" class="admin-row-table-01">
 	<tr>
 		<th class="col-head"><span class="required">*</span>&nbsp;
 		<?php echo $formEx->label('FbLikeboxConfig.page_url', 'ページURL') ?></th>
 		<td class="col-input">
 			<?php echo $formEx->input('FbLikeboxConfig.page_url', array('type' => 'text', 'size' => '66')) ?>
-				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpPageUrl', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
+				<?php echo $html->image('img_icon_help_admin.gif',array('id' => 'helpPageUrl', 'class' => 'help', 'alt' => 'ヘルプ')) ?>
 					<?php echo $formEx->error('FbLikeboxConfig.page_url') ?>
 					<div id="helptextPageUrl" class="helptext">
 						<ul>
@@ -31,7 +50,7 @@
 		<?php echo $formEx->label('FbLikeboxConfig.width', '表示幅') ?></th>
 		<td class="col-input">
 			<?php echo $formEx->input('FbLikeboxConfig.width', array('type' => 'text', 'size' => '8')) ?> px
-				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpWidth', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
+				<?php echo $html->image('img_icon_help_admin.gif',array('id' => 'helpWidth', 'class' => 'help', 'alt' => 'ヘルプ')) ?>
 					<?php echo $formEx->error('FbLikeboxConfig.width') ?>
 					<div id="helptextWidth" class="helptext">
 						<ul>
@@ -42,25 +61,10 @@
 		</td>
 	</tr>
 	<tr>
-		<th class="col-head">
-		<?php echo $formEx->label('FbLikeboxConfig.width', '表示高さ') ?></th>
-		<td class="col-input">
-			<?php echo $formEx->input('FbLikeboxConfig.height', array('type' => 'text', 'size' => '8')) ?> px
-				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpHeight', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
-					<?php echo $formEx->error('FbLikeboxConfig.height') ?>
-					<div id="helptextHeight" class="helptext">
-						<ul>
-							<li>表示する高さをピクセル単位で指定します。</li>
-							<li>初期表示、及び入力がない時の表示高さは427px(ピクセル)になります。</li>
-						</ul>
-					</div>
-		</td>
-	</tr>
-	<tr>
 		<th class="col-head"><?php echo $formEx->label('FbLikeboxConfig.color_scheme', '色') ?></th>
 		<td class="col-input">
 			<?php echo $formEx->input('FbLikeboxConfig.color_scheme', array('type' => 'select', 'options' => $color_scheme)) ?>
-				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpColorScheme', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
+				<?php echo $html->image('img_icon_help_admin.gif',array('id' => 'helpColorScheme', 'class' => 'help', 'alt' => 'ヘルプ')) ?>
 					<?php echo $formEx->error('FbLikeboxConfig.color_scheme') ?>
 					<div id="helptextColorScheme" class="helptext">
 						<ul>
@@ -74,7 +78,7 @@
 		<th class="col-head"><?php echo $formEx->label('FbLikeboxConfig.show_faces', '顔アイコン') ?></th>
 		<td class="col-input">
 			<?php echo $formEx->input('FbLikeboxConfig.show_faces', array('type' => 'checkbox')) ?>
-				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpShowFaces', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
+				<?php echo $html->image('img_icon_help_admin.gif',array('id' => 'helpShowFaces', 'class' => 'help', 'alt' => 'ヘルプ')) ?>
 					<?php echo $formEx->error('FbLikeboxConfig.show_faces') ?>
 					<div id="helptextShowFaces" class="helptext">
 						<ul>
@@ -87,7 +91,7 @@
 		<th class="col-head"><?php echo $formEx->label('FbLikeboxConfig.stream', 'ストリーム') ?></th>
 		<td class="col-input">
 			<?php echo $formEx->input('FbLikeboxConfig.stream', array('type' => 'checkbox')) ?>
-				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpStream', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
+				<?php echo $html->image('img_icon_help_admin.gif',array('id' => 'helpStream', 'class' => 'help', 'alt' => 'ヘルプ')) ?>
 					<?php echo $formEx->error('FbLikeboxConfig.stream') ?>
 					<div id="helptextStream" class="helptext">
 						<ul>
@@ -100,7 +104,7 @@
 		<th class="col-head"><?php echo $formEx->label('FbLikeboxConfig.header', 'ヘッダー タイトル') ?></th>
 		<td class="col-input">
 			<?php echo $formEx->input('FbLikeboxConfig.header', array('type' => 'checkbox')) ?>
-				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpHeader', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
+				<?php echo $html->image('img_icon_help_admin.gif',array('id' => 'helpHeader', 'class' => 'help', 'alt' => 'ヘルプ')) ?>
 					<?php echo $formEx->error('FbLikeboxConfig.header') ?>
 					<div id="helptextHeader" class="helptext">
 						<ul>
@@ -114,7 +118,7 @@
 		<?php echo $formEx->label('FbLikeboxConfig.border_color', '枠線の色') ?></th>
 		<td class="col-input">
 			<?php echo $formEx->input('FbLikeboxConfig.border_color', array('type' => 'text', 'size' => '8')) ?>
-				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpBorderColor', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
+				<?php echo $html->image('img_icon_help_admin.gif',array('id' => 'helpBorderColor', 'class' => 'help', 'alt' => 'ヘルプ')) ?>
 					<?php echo $formEx->error('FbLikeboxConfig.border_color') ?>
 					<div id="helptextBorderColor" class="helptext">
 						<ul>
@@ -129,7 +133,7 @@
 		<th class="col-head"><?php echo $formEx->label('FbLikeboxConfig.language', '表示言語') ?></th>
 		<td class="col-input">
 			<?php echo $formEx->input('FbLikeboxConfig.language', array('type' => 'select', 'options' => $language)) ?>
-				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpLanguage', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
+				<?php echo $html->image('img_icon_help_admin.gif',array('id' => 'helpLanguage', 'class' => 'help', 'alt' => 'ヘルプ')) ?>
 					<?php echo $formEx->error('FbLikeboxConfig.language') ?>
 					<div id="helptextLanguage" class="helptext">
 						<ul>
@@ -142,7 +146,7 @@
 	</tr>
 </table>
 
-<div class="submit">
+<div class="align-center">
 	<?php echo $formEx->submit('保　存', array('div' => false, 'class' => 'btn-orange button')) ?>
 </div>
 
@@ -154,6 +158,6 @@
 <div class="align-center">
 <div id="fb-root"></div>
 <script src="http://connect.facebook.net/<?php echo $language[$this->data['FbLikeboxConfig']['language']] ?>/all.js#xfbml=1"></script>
-<fb:like-box href="<?php echo $this->data['FbLikeboxConfig']['page_url'] ?>" width="<?php echo $this->data['FbLikeboxConfig']['width'] ?>" height="<?php echo $this->data['FbLikeboxConfig']['height'] ?>" colorscheme="<?php echo $color_scheme[$this->data['FbLikeboxConfig']['color_scheme']] ?>" show_faces="<?php echo $show_faces[$this->data['FbLikeboxConfig']['show_faces']] ?>" stream="<?php echo $stream[$this->data['FbLikeboxConfig']['stream']] ?>" header="<?php echo $header[$this->data['FbLikeboxConfig']['header']] ?>" border_color="<?php echo $this->data['FbLikeboxConfig']['border_color'] ?>">
+<fb:like-box href="<?php echo $this->data['FbLikeboxConfig']['page_url'] ?>" width="<?php echo $this->data['FbLikeboxConfig']['width'] ?>" colorscheme="<?php echo $color_scheme[$this->data['FbLikeboxConfig']['color_scheme']] ?>" show_faces="<?php echo $show_faces[$this->data['FbLikeboxConfig']['show_faces']] ?>" stream="<?php echo $stream[$this->data['FbLikeboxConfig']['stream']] ?>" header="<?php echo $header[$this->data['FbLikeboxConfig']['header']] ?>" border_color="<?php echo $this->data['FbLikeboxConfig']['border_color'] ?>">
 </fb:like-box>
 </div>
