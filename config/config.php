@@ -2,15 +2,14 @@
 /**
  * Facebook LikeBoxプラグイン設定
  *
- * @copyright		Copyright 2011, materializing.
+ * @copyright		Copyright 2011 - 2012, materializing.
  * @link			http://www.materializing.net/
  * @author			arata
  * @package			fb_likebox.config
- * @since			Baser v 1.6.11.2
- * @version			1.1.1
+ * @version			2.0.0
  * @modifiedby		$LastChangedBy: arata $
  * @lastmodified	$Date: 2011/08/24 05:19:01
- * @license			GPL
+ * @license			MIT
  */
 $title = 'Facebook LikeBox';
 $description = 'Facebook LikeBox を表示します。';

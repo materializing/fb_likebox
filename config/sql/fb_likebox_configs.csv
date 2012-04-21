@@ -1,6 +1,7 @@
 id,name,value,created,modified
 ,page_url,http://www.facebook.com/platform,,
 ,width,292,,
+,height,,,
 ,color_scheme,1,,
 ,show_faces,1,,
 ,stream,1,,

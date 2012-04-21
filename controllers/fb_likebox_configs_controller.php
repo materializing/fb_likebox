@@ -2,13 +2,12 @@
 /**
  * Facebook LikeBoxプラグイン設定コントローラー
  *
- * @copyright		Copyright 2011, materializing.
+ * @copyright		Copyright 2011 - 2012, materializing.
  * @link			http://www.materializing.net/
  * @author			arata
  * @package			fb_likebox.controllers
- * @since			Baser v 1.6.11.2
- * @version			1.1.0
- * @license			GPL
+ * @version			2.0.0
+ * @license			MIT
  */
 App::import('Controller', 'Plugins');
 class FbLikeboxConfigsController extends PluginsController {
@@ -31,6 +30,16 @@ class FbLikeboxConfigsController extends PluginsController {
  * @access public
  */
 	var $subMenuElements = array('fb_likebox');
+/**
+ * ぱんくずナビ
+ *
+ * @var string
+ * @access public
+ */
+	var $crumbs = array(
+		array('name' => 'プラグイン管理', 'url' => array('plugin' => '', 'controller' => 'plugins', 'action' => 'index')),
+		array('name' => 'Facebook LikeBox管理', 'url' => array('controller' => 'fb_likebox_configs', 'action' => 'index'))
+	);
 /**
  * Facebook LikeBoxプラグイン設定
  * @return void
@@ -82,6 +91,7 @@ class FbLikeboxConfigsController extends PluginsController {
 		$this->set('language', $this->FbLikeboxConfig->language);
 
 		$this->pageTitle = 'Facebook LikeBoxプラグイン設定';
+		$this->help = 'fb_likebox_configs_index';
 	}
 
 }

@@ -2,13 +2,12 @@
 /**
  * Facebook LikeBoxプラグイン設定モデル
  *
- * @copyright		Copyright 2011, materializing.
+ * @copyright		Copyright 2011 - 2012, materializing.
  * @link			http://www.materializing.net/
  * @author			arata
  * @package			fb_likebox.models
- * @since			Baser v 1.6.11.2
- * @version			1.1.0
- * @license			GPL
+ * @version			2.0.0
+ * @license			MIT
  */
 class FbLikeboxConfig extends AppModel {
 /**
