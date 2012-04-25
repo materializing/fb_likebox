@@ -10,15 +10,15 @@
  * @license			MIT
  */
 ?>
-<?php echo $formEx->create('FbLikeboxConfig', array('action' => 'index')) ?>
+<?php echo $bcForm->create('FbLikeboxConfig', array('action' => 'index')) ?>
 <table cellpadding="0" cellspacing="0" class="list-table" id="ListTable">
 	<tr>
 		<th class="col-head"><span class="required">*</span>&nbsp;
-		<?php echo $formEx->label('FbLikeboxConfig.page_url', 'ページURL') ?></th>
+		<?php echo $bcForm->label('FbLikeboxConfig.page_url', 'ページURL') ?></th>
 		<td class="col-input">
-			<?php echo $formEx->input('FbLikeboxConfig.page_url', array('type' => 'text', 'size' => '66')) ?>
+			<?php echo $bcForm->input('FbLikeboxConfig.page_url', array('type' => 'text', 'size' => '66')) ?>
 				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpPageUrl', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
-					<?php echo $formEx->error('FbLikeboxConfig.page_url') ?>
+					<?php echo $bcForm->error('FbLikeboxConfig.page_url') ?>
 					<div id="helptextPageUrl" class="helptext">
 						<ul>
 							<li>リンク先となるFacebookページのURLを指定します。</li>
@@ -28,11 +28,11 @@
 	</tr>
 	<tr>
 		<th class="col-head">
-		<?php echo $formEx->label('FbLikeboxConfig.width', '表示幅') ?></th>
+		<?php echo $bcForm->label('FbLikeboxConfig.width', '表示幅') ?></th>
 		<td class="col-input">
-			<?php echo $formEx->input('FbLikeboxConfig.width', array('type' => 'text', 'size' => '8')) ?> px
+			<?php echo $bcForm->input('FbLikeboxConfig.width', array('type' => 'text', 'size' => '8')) ?> px
 				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpWidth', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
-					<?php echo $formEx->error('FbLikeboxConfig.width') ?>
+					<?php echo $bcForm->error('FbLikeboxConfig.width') ?>
 					<div id="helptextWidth" class="helptext">
 						<ul>
 							<li>表示する幅をピクセル単位で指定します。</li>
@@ -43,11 +43,11 @@
 	</tr>
 	<tr>
 		<th class="col-head">
-		<?php echo $formEx->label('FbLikeboxConfig.width', '表示高さ') ?></th>
+		<?php echo $bcForm->label('FbLikeboxConfig.width', '表示高さ') ?></th>
 		<td class="col-input">
-			<?php echo $formEx->input('FbLikeboxConfig.height', array('type' => 'text', 'size' => '8')) ?> px
+			<?php echo $bcForm->input('FbLikeboxConfig.height', array('type' => 'text', 'size' => '8')) ?> px
 				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpHeight', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
-					<?php echo $formEx->error('FbLikeboxConfig.height') ?>
+					<?php echo $bcForm->error('FbLikeboxConfig.height') ?>
 					<div id="helptextHeight" class="helptext">
 						<ul>
 							<li>表示する高さをピクセル単位で指定します。</li>
@@ -57,11 +57,11 @@
 		</td>
 	</tr>
 	<tr>
-		<th class="col-head"><?php echo $formEx->label('FbLikeboxConfig.color_scheme', '色') ?></th>
+		<th class="col-head"><?php echo $bcForm->label('FbLikeboxConfig.color_scheme', '色') ?></th>
 		<td class="col-input">
-			<?php echo $formEx->input('FbLikeboxConfig.color_scheme', array('type' => 'select', 'options' => $color_scheme)) ?>
+			<?php echo $bcForm->input('FbLikeboxConfig.color_scheme', array('type' => 'select', 'options' => $color_scheme)) ?>
 				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpColorScheme', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
-					<?php echo $formEx->error('FbLikeboxConfig.color_scheme') ?>
+					<?php echo $bcForm->error('FbLikeboxConfig.color_scheme') ?>
 					<div id="helptextColorScheme" class="helptext">
 						<ul>
 							<li>表示する色を指定します。</li>
@@ -71,11 +71,11 @@
 		</td>
 	</tr>
 	<tr>
-		<th class="col-head"><?php echo $formEx->label('FbLikeboxConfig.show_faces', '顔アイコン') ?></th>
+		<th class="col-head"><?php echo $bcForm->label('FbLikeboxConfig.show_faces', '顔アイコン') ?></th>
 		<td class="col-input">
-			<?php echo $formEx->input('FbLikeboxConfig.show_faces', array('type' => 'checkbox')) ?>
+			<?php echo $bcForm->input('FbLikeboxConfig.show_faces', array('type' => 'checkbox')) ?>
 				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpShowFaces', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
-					<?php echo $formEx->error('FbLikeboxConfig.show_faces') ?>
+					<?php echo $bcForm->error('FbLikeboxConfig.show_faces') ?>
 					<div id="helptextShowFaces" class="helptext">
 						<ul>
 							<li>プロフィールの写真を表示するかどうかを指定します。</li>
@@ -84,11 +84,11 @@
 		</td>
 	</tr>
 	<tr>
-		<th class="col-head"><?php echo $formEx->label('FbLikeboxConfig.stream', 'ストリーム') ?></th>
+		<th class="col-head"><?php echo $bcForm->label('FbLikeboxConfig.stream', 'ストリーム') ?></th>
 		<td class="col-input">
-			<?php echo $formEx->input('FbLikeboxConfig.stream', array('type' => 'checkbox')) ?>
+			<?php echo $bcForm->input('FbLikeboxConfig.stream', array('type' => 'checkbox')) ?>
 				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpStream', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
-					<?php echo $formEx->error('FbLikeboxConfig.stream') ?>
+					<?php echo $bcForm->error('FbLikeboxConfig.stream') ?>
 					<div id="helptextStream" class="helptext">
 						<ul>
 							<li>ページのウォールから最新の記事(ストリーム)を表示するかどうかを指定します。</li>
@@ -97,11 +97,11 @@
 		</td>
 	</tr>
 	<tr>
-		<th class="col-head"><?php echo $formEx->label('FbLikeboxConfig.header', 'ヘッダー タイトル') ?></th>
+		<th class="col-head"><?php echo $bcForm->label('FbLikeboxConfig.header', 'ヘッダー タイトル') ?></th>
 		<td class="col-input">
-			<?php echo $formEx->input('FbLikeboxConfig.header', array('type' => 'checkbox')) ?>
+			<?php echo $bcForm->input('FbLikeboxConfig.header', array('type' => 'checkbox')) ?>
 				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpHeader', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
-					<?php echo $formEx->error('FbLikeboxConfig.header') ?>
+					<?php echo $bcForm->error('FbLikeboxConfig.header') ?>
 					<div id="helptextHeader" class="helptext">
 						<ul>
 							<li>表示枠上部のヘッダー部分で、Facebook表示を行うかどうかを指定します。</li>
@@ -111,11 +111,11 @@
 	</tr>
 	<tr>
 		<th class="col-head">
-		<?php echo $formEx->label('FbLikeboxConfig.border_color', '枠線の色') ?></th>
+		<?php echo $bcForm->label('FbLikeboxConfig.border_color', '枠線の色') ?></th>
 		<td class="col-input">
-			<?php echo $formEx->input('FbLikeboxConfig.border_color', array('type' => 'text', 'size' => '8')) ?>
+			<?php echo $bcForm->input('FbLikeboxConfig.border_color', array('type' => 'text', 'size' => '8')) ?>
 				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpBorderColor', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
-					<?php echo $formEx->error('FbLikeboxConfig.border_color') ?>
+					<?php echo $bcForm->error('FbLikeboxConfig.border_color') ?>
 					<div id="helptextBorderColor" class="helptext">
 						<ul>
 							<li>表示する枠線の色を、半角英字の色名で指定します。</li>
@@ -126,11 +126,11 @@
 		</td>
 	</tr>
 	<tr>
-		<th class="col-head"><?php echo $formEx->label('FbLikeboxConfig.language', '表示言語') ?></th>
+		<th class="col-head"><?php echo $bcForm->label('FbLikeboxConfig.language', '表示言語') ?></th>
 		<td class="col-input">
-			<?php echo $formEx->input('FbLikeboxConfig.language', array('type' => 'select', 'options' => $language)) ?>
+			<?php echo $bcForm->input('FbLikeboxConfig.language', array('type' => 'select', 'options' => $language)) ?>
 				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpLanguage', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
-					<?php echo $formEx->error('FbLikeboxConfig.language') ?>
+					<?php echo $bcForm->error('FbLikeboxConfig.language') ?>
 					<div id="helptextLanguage" class="helptext">
 						<ul>
 							<li>表示する言語を指定します。</li>
@@ -143,10 +143,10 @@
 </table>
 
 <div class="submit">
-	<?php echo $formEx->submit('保　存', array('div' => false, 'class' => 'btn-orange button')) ?>
+	<?php echo $bcForm->submit('保　存', array('div' => false, 'class' => 'btn-orange button')) ?>
 </div>
 
-<?php echo $formEx->end() ?>
+<?php echo $bcForm->end() ?>
 
 <br />
 <h3>現在の表示状態</h3>

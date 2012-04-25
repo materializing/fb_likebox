@@ -14,7 +14,7 @@
 	<th>Facebook LikeBox管理メニュー</th>
 	<td>
 		<ul>
-			<li><?php $baser->link('Facebook LikeBoxプラグイン設定',array('controller' => 'fb_likebox_configs', 'action'=>'index')) ?></li>
+			<li><?php $bcBaser->link('Facebook LikeBoxプラグイン設定',array('controller' => 'fb_likebox_configs', 'action'=>'index')) ?></li>
 		</ul>
 	</td>
 </tr>
