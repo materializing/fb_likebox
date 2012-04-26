@@ -31,6 +31,16 @@ class FbLikeboxController extends PluginsController {
  */
 	var $subMenuElements = array('fb_likebox');
 /**
+ * ぱんくずナビ
+ *
+ * @var string
+ * @access public
+ */
+	var $crumbs = array(
+		array('name' => 'プラグイン管理', 'url' => array('plugin' => '', 'controller' => 'plugins', 'action' => 'index')),
+		array('name' => 'Facebook LikeBox管理', 'url' => array('plugin' => 'fb_likebox', 'controller' => 'fb_likebox', 'action' => 'index'))
+	);
+/**
  * Facebook LikeBoxプラグイン表示
  *
  * @return void
@@ -55,6 +65,7 @@ class FbLikeboxController extends PluginsController {
 		$this->set('data', $data);
 
 		$this->pageTitle = 'Facebook LikeBoxプラグイン';
+		// $this->help = 'fb_likebox_configs_index';
 
 	}
 

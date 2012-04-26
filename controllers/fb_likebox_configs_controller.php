@@ -9,8 +9,8 @@
  * @version			2.0.0
  * @license			MIT
  */
-App::import('Controller', 'Plugins');
-class FbLikeboxConfigsController extends PluginsController {
+// App::import('Controller', 'Plugins');
+class FbLikeboxConfigsController extends AppController {
 /**
  * コントローラー名
  * @var string
@@ -23,6 +23,19 @@ class FbLikeboxConfigsController extends PluginsController {
  * @access public
  */
 	var $uses = array('Plugin', 'FbLikebox.FbLikeboxConfig');
+/**
+ * コンポーネント
+ * @var     array
+ * @access  public
+ */
+	var $components = array('BcAuth','Cookie','BcAuthConfigure');
+/**
+ * ヘルパー
+ * 
+ * @var array
+ * @access public
+ */
+	var $helpers = array(BC_FORM_HELPER);
 /**
  * サブメニューエレメント
  *
@@ -38,8 +51,20 @@ class FbLikeboxConfigsController extends PluginsController {
  */
 	var $crumbs = array(
 		array('name' => 'プラグイン管理', 'url' => array('plugin' => '', 'controller' => 'plugins', 'action' => 'index')),
-		array('name' => 'Facebook LikeBox管理', 'url' => array('controller' => 'fb_likebox_configs', 'action' => 'index'))
+		array('name' => 'Facebook LikeBox管理', 'url' => array('plugin' => 'fb_likebox', 'controller' => 'fb_likebox_configs', 'action' => 'index'))
 	);
+/**
+ * beforeFilter
+ * @return	void
+ * @access	public
+ */
+	function beforeFilter(){
+		
+		parent::beforeFilter();
+		// 指定なしの場合、正常にユーザー制限が掛からないので注意
+		// $this->BcAuth->allow();
+
+	}
 /**
  * Facebook LikeBoxプラグイン設定
  * @return void
