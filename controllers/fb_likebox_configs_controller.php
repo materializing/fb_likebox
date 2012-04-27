@@ -9,7 +9,6 @@
  * @version			2.0.0
  * @license			MIT
  */
-// App::import('Controller', 'Plugins');
 class FbLikeboxConfigsController extends AppController {
 /**
  * コントローラー名

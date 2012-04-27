@@ -9,6 +9,5 @@
  * @version			2.0.0
  * @license			MIT
  */
-$title = 'Facebook LikeBox';
-$description = 'FacebookのLikeBoxを表示します。';
+loadPluginConfig('fb_likebox.fb_likebox');
 ?>

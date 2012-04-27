@@ -9,8 +9,7 @@
  * @version			2.0.0
  * @license			MIT
  */
-App::import('Controller', 'Plugins');
-class FbLikeboxController extends PluginsController {
+class FbLikeboxController extends AppController {
 /**
  * コントローラー名
  * @var string
@@ -62,10 +61,10 @@ class FbLikeboxController extends PluginsController {
 		$this->set('color_scheme', $this->FbLikeboxConfig->color_scheme);
 		$this->set('language', $this->FbLikeboxConfig->language);
 
-		$this->set('data', $data);
+		$this->data = array('FbLikeboxConfig' => $data);
 
 		$this->pageTitle = 'Facebook LikeBoxプラグイン';
-		// $this->help = 'fb_likebox_configs_index';
+		// $this->help = 'fb_likebox_index';
 
 	}
 
