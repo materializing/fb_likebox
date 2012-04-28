@@ -10,4 +10,3 @@
  * @license			MIT
  */
 loadPluginConfig('fb_likebox.fb_likebox');
-?>

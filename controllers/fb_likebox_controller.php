@@ -69,4 +69,3 @@ class FbLikeboxController extends AppController {
 	}
 
 }
-?>

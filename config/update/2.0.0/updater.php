@@ -31,47 +31,46 @@
  * $filterTable		指定したテーブルのみCSVを読み込む場合は、プレフィックスを除外したテーブル名を指定します。（例）'permissions'
  *					指定しない場合は全てのテーブルが対象になります。
  */
-	if($this->loadCsv('2.0.0', 'fb_likebox')){
+if($this->loadCsv('2.0.0', 'fb_likebox')){
 
-		// Facebook LikeBoxプラグインのコンテンツ更新
-		App::import('Model', 'FbLikebox.FbLikeboxConfig');
-		$FbLikeboxConfig = new FbLikeboxConfig();
-		$datas = $FbLikeboxConfig->find('all');
-		$result = true;
+	// Facebook LikeBoxプラグインのコンテンツ更新
+	App::import('Model', 'FbLikebox.FbLikeboxConfig');
+	$FbLikeboxConfig = new FbLikeboxConfig();
+	$datas = $FbLikeboxConfig->find('all');
+	$result = true;
 
-		// 追加フィールドを定義
-		$_datas = array (
-			array(
-				'FbLikeboxConfig' => array (
-					'name' => 'height',
-					'value' => '',
-				)
+	// 追加フィールドを定義
+	$_datas = array (
+		array(
+			'FbLikeboxConfig' => array (
+				'name' => 'height',
+				'value' => '',
 			)
-		);
+		)
+	);
 
-		$datas = array_merge($datas, $_datas);
+	$datas = array_merge($datas, $_datas);
 
-		foreach($datas as $data) {
-			$FbLikeboxConfig->create();
+	foreach($datas as $data) {
+		$FbLikeboxConfig->create();
 
-			if($data['FbLikeboxConfig']['name'] == 'show_faces' || $data['FbLikeboxConfig']['name'] == 'stream' || $data['FbLikeboxConfig']['name'] == 'header') {
-				// 返ってくる値をチェックして、空文字、FALSE、NULLの場合は0を入れる
-				$data['FbLikeboxConfig']['value'] = $FbLikeboxConfig->checkEmpty($data['FbLikeboxConfig']['value']);
-			}
-
-			if($FbLikeboxConfig->save($data)) {
-				continue;
-			} else {
-				$result = false;
-				break;
-			}
-
+		if($data['FbLikeboxConfig']['name'] == 'show_faces' || $data['FbLikeboxConfig']['name'] == 'stream' || $data['FbLikeboxConfig']['name'] == 'header') {
+			// 返ってくる値をチェックして、空文字、FALSE、NULLの場合は0を入れる
+			$data['FbLikeboxConfig']['value'] = $FbLikeboxConfig->checkEmpty($data['FbLikeboxConfig']['value']);
 		}
 
-		if($result){
-			$this->setMessage('fb_likebox_configs テーブルのデータ更新に成功しました。');
+		if($FbLikeboxConfig->save($data)) {
+			continue;
 		} else {
-			$this->setMessage('fb_likebox_configs テーブルのデータ更新に失敗しました。', true);
+			$result = false;
+			break;
 		}
+
 	}
-?>
+
+	if($result){
+		$this->setMessage('fb_likebox_configs テーブルのデータ更新に成功しました。');
+	} else {
+		$this->setMessage('fb_likebox_configs テーブルのデータ更新に失敗しました。', true);
+	}
+}

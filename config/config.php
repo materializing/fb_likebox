@@ -15,4 +15,3 @@ $author = 'arata';
 $url = 'http://www.materializing.net/';
 $adminLink = array('plugin' => 'fb_likebox', 'controller' => 'fb_likebox_configs', 'action' => 'index');
 $installMessage = '';
-?>

@@ -11,4 +11,3 @@
  */
 $title = 'Facebook LikeBox';
 $description = 'FacebookのLikeBoxを表示します。';
-?>

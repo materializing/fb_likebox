@@ -29,7 +29,14 @@ $language = $FbLikeboxConfig->language;
 
 <div id="fb-root"></div>
 <script src="http://connect.facebook.net/<?php echo $language[$config['language']] ?>/all.js#xfbml=1"></script>
-<fb:like-box href="<?php echo $config['page_url'] ?>" width="<?php echo $config['width'] ?>" height="<?php echo $config['height'] ?>" colorscheme="<?php echo $color_scheme[$config['color_scheme']] ?>" show_faces="<?php echo $show_faces[$config['show_faces']] ?>" stream="<?php echo $stream[$config['stream']] ?>" header="<?php echo $header[$config['header']] ?>" border_color="<?php echo $config['border_color'] ?>">
+<fb:like-box href="<?php echo $config['page_url'] ?>" 
+			 width="<?php echo $config['width'] ?>" 
+			 height="<?php echo $config['height'] ?>" 
+			 colorscheme="<?php echo $color_scheme[$config['color_scheme']] ?>" 
+			 show_faces="<?php echo $show_faces[$config['show_faces']] ?>" 
+			 stream="<?php echo $stream[$config['stream']] ?>" 
+			 header="<?php echo $header[$config['header']] ?>" 
+			 border_color="<?php echo $config['border_color'] ?>">
 </fb:like-box>
 
 </div>

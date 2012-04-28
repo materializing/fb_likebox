@@ -54,8 +54,8 @@ class FbLikeboxConfigsController extends AppController {
 	);
 /**
  * beforeFilter
- * @return	void
- * @access	public
+ * @return void
+ * @access public
  */
 	function beforeFilter(){
 		
@@ -119,4 +119,3 @@ class FbLikeboxConfigsController extends AppController {
 	}
 
 }
-?>

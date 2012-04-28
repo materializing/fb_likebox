@@ -50,6 +50,11 @@ class FbLikeboxConfig extends AppModel {
 				'message'		=>	'半角数字で入力して下さい。',
 				'allowEmpty'	=> true
 			),
+			'height'		=> array(
+				'rule'			=>	'numeric',
+				'message'		=>	'半角数字で入力して下さい。',
+				'allowEmpty'	=> true
+			),
 			'border_color'	=> array(
 				'rule'			=>	'halfText',
 				'message'		=>	'半角英字で入力して下さい。'
@@ -94,4 +99,3 @@ class FbLikeboxConfig extends AppModel {
 		return $param;
 	}
 }
-?>
