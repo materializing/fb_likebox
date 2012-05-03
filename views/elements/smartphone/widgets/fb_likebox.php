@@ -1,6 +1,6 @@
 <?php
 /**
- * [PUBLISH] Facebook LikeBoxウィジェット
+ * [PUBLISH][SMARTPHONE] Facebook LikeBoxウィジェット
  *
  * @copyright		Copyright 2011 - 2012, materializing.
  * @link			http://www.materializing.net/
@@ -10,33 +10,22 @@
  * @license			MIT
  */
 $FbLikeboxConfig = ClassRegistry::init('FbLikebox.FbLikeboxConfig');
-$config = $FbLikeboxConfig->findExpanded();
-// CSV利用時に、0値がなぜか空文字で入ってくるので対処
-$config['show_faces'] = $FbLikeboxConfig->checkEmpty($config['show_faces']);
-$config['stream'] = $FbLikeboxConfig->checkEmpty($config['stream']);
-$config['header'] = $FbLikeboxConfig->checkEmpty($config['header']);
-$color_scheme = $FbLikeboxConfig->color_scheme;
-$show_faces = $FbLikeboxConfig->show_faces;
-$stream = $FbLikeboxConfig->stream;
-$header = $FbLikeboxConfig->header;
-$language = $FbLikeboxConfig->language;
+$url = '/fb_likebox/fb_likebox/get_fb_likebox';
+$data = $this->requestAction($url);
 ?>
-
 <div class="widget widget-fb_likebox widget-fb_likebox-<?php echo $id ?>">
 <?php if($name && $use_title): ?>
 <h2><?php echo $name ?></h2>
 <?php endif ?>
-
 <div id="fb-root"></div>
-<script src="http://connect.facebook.net/<?php echo $language[$config['language']] ?>/all.js#xfbml=1"></script>
-<fb:like-box href="<?php echo $config['page_url'] ?>" 
-			 width="<?php echo $config['width'] ?>" 
-			 height="<?php echo $config['height'] ?>" 
-			 colorscheme="<?php echo $color_scheme[$config['color_scheme']] ?>" 
-			 show_faces="<?php echo $show_faces[$config['show_faces']] ?>" 
-			 stream="<?php echo $stream[$config['stream']] ?>" 
-			 header="<?php echo $header[$config['header']] ?>" 
-			 border_color="<?php echo $config['border_color'] ?>">
+<script src="http://connect.facebook.net/<?php echo $data['language'] ?>/all.js#xfbml=1"></script>
+<fb:like-box href="<?php echo $data['page_url'] ?>" 
+			 width="<?php echo $data['width'] ?>" 
+			 height="<?php echo $data['height'] ?>" 
+			 colorscheme="<?php echo $data['color_scheme'] ?>" 
+			 show_faces="<?php echo $data['show_faces'] ?>" 
+			 stream="<?php echo $data['stream'] ?>" 
+			 header="<?php echo $data['header'] ?>" 
+			 border_color="<?php echo $data['border_color'] ?>">
 </fb:like-box>
-
 </div>

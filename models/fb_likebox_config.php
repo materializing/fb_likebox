@@ -98,4 +98,17 @@ class FbLikeboxConfig extends AppModel {
 		}
 		return $param;
 	}
+/**
+ * 全角文字を半角に変換して返す
+ * ※ 全角数字で入力があった場合はそれを許容するため
+ * 
+ * @param mixed $str
+ * @return string
+ */
+	function convertNumeric($str) {
+
+		return mb_convert_kana($str, 'a', 'UTF-8');
+
+	}
+
 }

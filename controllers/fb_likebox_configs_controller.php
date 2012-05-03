@@ -12,18 +12,21 @@
 class FbLikeboxConfigsController extends AppController {
 /**
  * コントローラー名
+ * 
  * @var string
  * @access public
  */
 	var $name = 'FbLikeboxConfigs';
 /**
  * モデル
+ * 
  * @var array
  * @access public
  */
 	var $uses = array('Plugin', 'FbLikebox.FbLikeboxConfig');
 /**
  * コンポーネント
+ * 
  * @var     array
  * @access  public
  */
@@ -54,6 +57,7 @@ class FbLikeboxConfigsController extends AppController {
 	);
 /**
  * beforeFilter
+ * 
  * @return void
  * @access public
  */
@@ -66,6 +70,7 @@ class FbLikeboxConfigsController extends AppController {
 	}
 /**
  * Facebook LikeBoxプラグイン設定
+ * 
  * @return void
  * @access public
  */
@@ -83,6 +88,13 @@ class FbLikeboxConfigsController extends AppController {
 			$this->data = array('FbLikeboxConfig' => $data);
 
 		} else {
+
+			if($this->data['FbLikeboxConfig']['width']) {
+				$this->data['FbLikeboxConfig']['width'] = $this->FbLikeboxConfig->convertNumeric($this->data['FbLikeboxConfig']['width']);
+			}
+			if($this->data['FbLikeboxConfig']['height']) {
+				$this->data['FbLikeboxConfig']['height'] = $this->FbLikeboxConfig->convertNumeric($this->data['FbLikeboxConfig']['height']);
+			}
 
 			$this->FbLikeboxConfig->set($this->data);
 			if($this->FbLikeboxConfig->validates()) {
