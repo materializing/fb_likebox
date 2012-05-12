@@ -19,9 +19,9 @@ $(window).load(function() {
 <?php echo $bcForm->create('FbLikeboxConfig', array('action' => 'index')) ?>
 <table cellpadding="0" cellspacing="0" class="list-table" id="ListTable">
 	<tr>
-		<th class="col-head"><span class="required">*</span>&nbsp;
+		<th><span class="required">*</span>&nbsp;
 		<?php echo $bcForm->label('FbLikeboxConfig.page_url', 'ページURL') ?></th>
-		<td class="col-input">
+		<td>
 			<?php echo $bcForm->input('FbLikeboxConfig.page_url', array('type' => 'text', 'size' => '66')) ?>
 				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpPageUrl', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
 					<?php echo $bcForm->error('FbLikeboxConfig.page_url') ?>
@@ -33,9 +33,8 @@ $(window).load(function() {
 		</td>
 	</tr>
 	<tr>
-		<th class="col-head">表示サイズ</th>
-		<td class="col-input">
-			<?php echo $bcForm->label('FbLikeboxConfig.width', '幅') ?>
+		<th><?php echo $bcForm->label('FbLikeboxConfig.width', '横幅サイズ') ?></th>
+		<td>
 			<?php echo $bcForm->input('FbLikeboxConfig.width', array('type' => 'text', 'size' => '8')) ?> px
 				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpWidth', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
 					<?php echo $bcForm->error('FbLikeboxConfig.width') ?>
@@ -45,8 +44,11 @@ $(window).load(function() {
 							<li>初期表示、及び入力がない時の表示幅は292px(ピクセル)になります。</li>
 						</ul>
 					</div>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<?php echo $bcForm->label('FbLikeboxConfig.width', '高さ') ?>
+		</td>
+	</tr>
+	<tr>
+		<th><?php echo $bcForm->label('FbLikeboxConfig.width', '高さサイズ') ?></th>
+		<td>
 			<?php echo $bcForm->input('FbLikeboxConfig.height', array('type' => 'text', 'size' => '8')) ?> px
 				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpHeight', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
 					<?php echo $bcForm->error('FbLikeboxConfig.height') ?>
@@ -59,9 +61,8 @@ $(window).load(function() {
 		</td>
 	</tr>
 	<tr>
-		<th class="col-head">デザイン</th>
-		<td class="col-input">
-			<?php echo $bcForm->label('FbLikeboxConfig.color_scheme', '色') ?>
+		<th><?php echo $bcForm->label('FbLikeboxConfig.color_scheme', '色の指定') ?></th>
+		<td>
 			<?php echo $bcForm->input('FbLikeboxConfig.color_scheme', array('type' => 'select', 'options' => $color_scheme)) ?>
 				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpColorScheme', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
 					<?php echo $bcForm->error('FbLikeboxConfig.color_scheme') ?>
@@ -71,8 +72,11 @@ $(window).load(function() {
 							<li>light：白(透明・背景色なし)、dark：黒</li>
 						</ul>
 					</div>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<?php echo $bcForm->label('FbLikeboxConfig.border_color', '枠線の色') ?>
+		</td>
+	</tr>
+	<tr>
+		<th><?php echo $bcForm->label('FbLikeboxConfig.border_color', '枠線の色') ?></th>
+		<td>
 			<?php echo $bcForm->input('FbLikeboxConfig.border_color', array('type' => 'text', 'size' => '8')) ?>
 				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpBorderColor', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
 					<?php echo $bcForm->error('FbLikeboxConfig.border_color') ?>
@@ -86,9 +90,8 @@ $(window).load(function() {
 		</td>
 	</tr>
 	<tr>
-		<th class="col-head">表示選択</th>
-		<td class="col-input">
-			<?php echo $bcForm->label('FbLikeboxConfig.show_faces', '顔アイコン') ?>
+		<th><?php echo $bcForm->label('FbLikeboxConfig.show_faces', '顔アイコン') ?></th>
+		<td>
 			<?php echo $bcForm->input('FbLikeboxConfig.show_faces', array('type' => 'checkbox')) ?>
 				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpShowFaces', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
 					<?php echo $bcForm->error('FbLikeboxConfig.show_faces') ?>
@@ -97,8 +100,11 @@ $(window).load(function() {
 							<li>プロフィールの写真を表示するかどうかを指定します。</li>
 						</ul>
 					</div>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<?php echo $bcForm->label('FbLikeboxConfig.stream', 'ストリーム') ?>
+		</td>
+	</tr>
+	<tr>
+		<th><?php echo $bcForm->label('FbLikeboxConfig.stream', 'ストリーム') ?></th>
+		<td>
 			<?php echo $bcForm->input('FbLikeboxConfig.stream', array('type' => 'checkbox')) ?>
 				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpStream', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
 					<?php echo $bcForm->error('FbLikeboxConfig.stream') ?>
@@ -107,8 +113,11 @@ $(window).load(function() {
 							<li>ページのウォールから最新の記事(ストリーム)を表示するかどうかを指定します。</li>
 						</ul>
 					</div>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<?php echo $bcForm->label('FbLikeboxConfig.header', 'ヘッダー タイトル') ?>
+		</td>
+	</tr>
+	<tr>
+		<th><?php echo $bcForm->label('FbLikeboxConfig.header', 'ヘッダー タイトル') ?></th>
+		<td>
 			<?php echo $bcForm->input('FbLikeboxConfig.header', array('type' => 'checkbox')) ?>
 				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpHeader', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
 					<?php echo $bcForm->error('FbLikeboxConfig.header') ?>
@@ -119,9 +128,10 @@ $(window).load(function() {
 					</div>
 		</td>
 	</tr>
+
 	<tr>
-		<th class="col-head"><?php echo $bcForm->label('FbLikeboxConfig.language', '表示言語') ?></th>
-		<td class="col-input">
+		<th><?php echo $bcForm->label('FbLikeboxConfig.language', '表示言語') ?></th>
+		<td>
 			<?php echo $bcForm->input('FbLikeboxConfig.language', array('type' => 'select', 'options' => $language)) ?>
 				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpLanguage', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
 					<?php echo $bcForm->error('FbLikeboxConfig.language') ?>
@@ -137,24 +147,47 @@ $(window).load(function() {
 </table>
 
 <div class="submit">
-	<?php echo $bcForm->submit('保　存', array('div' => false, 'class' => 'btn-orange button')) ?>
+	<?php echo $bcForm->submit('保　存', array('div' => false, 'class' => 'button')) ?>
 </div>
 
 <?php echo $bcForm->end() ?>
 
-<br />
+
 <h3>現在の表示状態</h3>
 
+<script language="JavaScript">
+$(function() {
+	$("#FbLikeboxConfigWidth").change(function() {
+
+		var dataWidth = $('#FbLikeboxConfigIndexForm :input');
+		var hoge = dataWidth.serialize();
+alert(hoge);
+		$.ajax({
+			type: "POST",
+			url: '/admin/fb_likebox/fb_likebox_configs/ajax_show',
+			dataType: "html",
+			success: function(data){
+				alert(data);
+				if(data) {
+					$("#dataTest").html(data);
+					$("#dataTest").load(data);
+				} else {
+					alert('データが取得できませんでした');
+				}
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				alert('処理に失敗しました');
+			}
+
+		});
+		
+		return false;
+
+	});
+});
+</script>
+
 <div class="align-center">
-<div id="fb-root"></div>
-<script src="http://connect.facebook.net/<?php echo $language[$this->data['FbLikeboxConfig']['language']] ?>/all.js#xfbml=1"></script>
-<fb:like-box href="<?php echo $this->data['FbLikeboxConfig']['page_url'] ?>" 
-			 width="<?php echo $this->data['FbLikeboxConfig']['width'] ?>" 
-			 height="<?php echo $this->data['FbLikeboxConfig']['height'] ?>" 
-			 colorscheme="<?php echo $color_scheme[$this->data['FbLikeboxConfig']['color_scheme']] ?>" 
-			 show_faces="<?php echo $show_faces[$this->data['FbLikeboxConfig']['show_faces']] ?>" 
-			 stream="<?php echo $stream[$this->data['FbLikeboxConfig']['stream']] ?>" 
-			 header="<?php echo $header[$this->data['FbLikeboxConfig']['header']] ?>" 
-			 border_color="<?php echo $this->data['FbLikeboxConfig']['border_color'] ?>">
-</fb:like-box>
+	<div id="DataList"><?php $bcBaser->element('fb_likebox_configs/index_list') ?></div>
 </div>
+<div id="dataTest"></div>
