@@ -128,35 +128,6 @@ class FbLikeboxConfigsController extends AppController {
 
 		$this->pageTitle = 'Facebook LikeBoxプラグイン設定';
 		$this->help = 'fb_likebox_configs_index';
-	}
-
-	// ajaxで呼び出される関数
-	function admin_ajax_show() {
-
-		Configure::write('debug', 0);
-		$this->layout = 'empty';
-
-		if($this->RequestHandler->isAjax()) {
-			
-			$data = $this->FbLikeboxConfig->findExpanded();
-
-			// 返ってくる値をチェックして、空文字、FALSE、NULLの場合は0を入れる
-			$data['show_faces'] = $this->FbLikeboxConfig->checkEmpty($data['show_faces']);
-			$data['stream'] = $this->FbLikeboxConfig->checkEmpty($data['stream']);
-			$data['header'] = $this->FbLikeboxConfig->checkEmpty($data['header']);
-
-			// 選択値の設定値を取得
-			$this->set('show_faces', $this->FbLikeboxConfig->show_faces);
-			$this->set('stream', $this->FbLikeboxConfig->stream);
-			$this->set('header', $this->FbLikeboxConfig->header);
-			$this->set('color_scheme', $this->FbLikeboxConfig->color_scheme);
-			$this->set('language', $this->FbLikeboxConfig->language);
-
-			$this->data = array('FbLikeboxConfig' => $data);
-
-		}
-
-		//$this->render('elements/admin/test');
 
 	}
 

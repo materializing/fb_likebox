@@ -155,39 +155,6 @@ $(window).load(function() {
 
 <h3>現在の表示状態</h3>
 
-<script language="JavaScript">
-$(function() {
-	$("#FbLikeboxConfigWidth").change(function() {
-
-		var dataWidth = $('#FbLikeboxConfigIndexForm :input');
-		var hoge = dataWidth.serialize();
-alert(hoge);
-		$.ajax({
-			type: "POST",
-			url: '/admin/fb_likebox/fb_likebox_configs/ajax_show',
-			dataType: "html",
-			success: function(data){
-				alert(data);
-				if(data) {
-					$("#dataTest").html(data);
-					$("#dataTest").load(data);
-				} else {
-					alert('データが取得できませんでした');
-				}
-			},
-			error: function(XMLHttpRequest, textStatus, errorThrown) {
-				alert('処理に失敗しました');
-			}
-
-		});
-		
-		return false;
-
-	});
-});
-</script>
-
 <div class="align-center">
 	<div id="DataList"><?php $bcBaser->element('fb_likebox_configs/index_list') ?></div>
 </div>
-<div id="dataTest"></div>
