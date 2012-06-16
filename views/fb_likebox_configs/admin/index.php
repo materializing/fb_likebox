@@ -19,8 +19,7 @@ $(window).load(function() {
 <?php echo $bcForm->create('FbLikeboxConfig', array('action' => 'index')) ?>
 <table cellpadding="0" cellspacing="0" class="list-table" id="ListTable">
 	<tr>
-		<th><span class="required">*</span>&nbsp;
-		<?php echo $bcForm->label('FbLikeboxConfig.page_url', 'ページURL') ?></th>
+		<th><span class="required">*</span>&nbsp;<?php echo $bcForm->label('FbLikeboxConfig.page_url', 'ページURL') ?></th>
 		<td>
 			<?php echo $bcForm->input('FbLikeboxConfig.page_url', array('type' => 'text', 'size' => '66')) ?>
 				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpPageUrl', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
@@ -128,7 +127,6 @@ $(window).load(function() {
 					</div>
 		</td>
 	</tr>
-
 	<tr>
 		<th><?php echo $bcForm->label('FbLikeboxConfig.language', '表示言語') ?></th>
 		<td>
