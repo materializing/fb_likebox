@@ -14,7 +14,90 @@
 $(window).load(function() {
 	$("#FbLikeboxConfigPageUrl").focus();
 });
+
+$(function() {
+	$("#FbLikeboxConfigPageUrl").change(function() {
+		fbLikeboxValueChengeHandler();
+	});
+	$("#FbLikeboxConfigWidth").change(function() {
+		fbLikeboxValueChengeHandler();
+	});
+	$("#FbLikeboxConfigHeight").change(function() {
+		fbLikeboxValueChengeHandler();
+	});
+	$("#FbLikeboxConfigColorScheme").change(function() {
+		fbLikeboxValueChengeHandler();
+	});
+	$("#FbLikeboxConfigBorderColor").change(function() {
+		fbLikeboxValueChengeHandler();
+	});
+	$("#FbLikeboxConfigShowFaces").change(function() {
+		fbLikeboxValueChengeHandler();
+	});
+	$("#FbLikeboxConfigStream").change(function() {
+		fbLikeboxValueChengeHandler();
+	});
+	$("#FbLikeboxConfigHeader").change(function() {
+		fbLikeboxValueChengeHandler();
+	});
+	$("#FbLikeboxConfigLanguage").change(function() {
+		fbLikeboxValueChengeHandler();
+	});
+
+	$.ajax({
+		type: "GET",
+		url: $("#AjaxShowUrl").html(),
+		dataType: "html",
+		cache: false,
+		success: function(result) {
+			if(result) {
+				result = result;
+			} else {
+				result = '取得できませんでした。';
+			}
+			$("#DataList").html(result);
+		}
+	});
+});
+
+function fbLikeboxValueChengeHandler() {
+
+	var options = {};
+	options = {
+		"data[FbLikeboxConfig][page_url]": $("#FbLikeboxConfigPageUrl").val(),
+		"data[FbLikeboxConfig][width]": $("#FbLikeboxConfigWidth").val(),
+		"data[FbLikeboxConfig][height]": $("#FbLikeboxConfigHeight").val(),
+		"data[FbLikeboxConfig][color_scheme]": $("#FbLikeboxConfigColorScheme option:selected").val(),
+		"data[FbLikeboxConfig][border_color]": $("#FbLikeboxConfigBorderColor").val(),
+		"data[FbLikeboxConfig][show_faces]": $("#FbLikeboxConfigShowFaces").prop('checked'),
+		"data[FbLikeboxConfig][stream]": $("#FbLikeboxConfigStream").prop('checked'),
+		"data[FbLikeboxConfig][header]": $("#FbLikeboxConfigHeader").prop('checked'),
+		"data[FbLikeboxConfig][language]": $("#FbLikeboxConfigLanguage option:selected").val()
+	};
+	$.ajax({
+		type: "POST",
+		data: options,
+		url: $("#AjaxShowUrl").html(),
+		success: function(result) {
+			if(result) {
+				$("#DataList").html(result);
+			} else {
+				result = '取得できませんでした。';
+			}
+			$("#DataList").html(result);
+			// FB.init しないと取得後の表示ができないっぽい
+			FB.init({
+				xfbml : true
+			});
+		}
+	});
+
+}
 </script>
+
+<div class="display-none">
+	<div id="AjaxShowUrl"><?php $bcBaser->url(array('action' => 'ajax_show')) ?></div>
+</div>
 
 <?php echo $bcForm->create('FbLikeboxConfig', array('action' => 'index')) ?>
 <table cellpadding="0" cellspacing="0" class="list-table" id="ListTable">
@@ -82,14 +165,14 @@ $(window).load(function() {
 					<div id="helptextBorderColor" class="helptext">
 						<ul>
 							<li>表示する枠線の色を、半角英字の色名で指定します。</li>
-							<li>例：red、black、green　などなど。</li>
+							<li>例：red、black、green、#000000、#CC0000　などなど。</li>
 							<li>初期表示、及び入力がない時の色は薄い灰色になります。</li>
 						</ul>
 					</div>
 		</td>
 	</tr>
 	<tr>
-		<th><?php echo $bcForm->label('FbLikeboxConfig.show_faces', '顔アイコン') ?></th>
+		<th><?php echo $bcForm->label('FbLikeboxConfig.show_faces', '顔アイコンの表示') ?></th>
 		<td>
 			<?php echo $bcForm->input('FbLikeboxConfig.show_faces', array('type' => 'checkbox')) ?>
 				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpShowFaces', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
@@ -102,7 +185,7 @@ $(window).load(function() {
 		</td>
 	</tr>
 	<tr>
-		<th><?php echo $bcForm->label('FbLikeboxConfig.stream', 'ストリーム') ?></th>
+		<th><?php echo $bcForm->label('FbLikeboxConfig.stream', 'ストリームの表示') ?></th>
 		<td>
 			<?php echo $bcForm->input('FbLikeboxConfig.stream', array('type' => 'checkbox')) ?>
 				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpStream', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
@@ -115,7 +198,7 @@ $(window).load(function() {
 		</td>
 	</tr>
 	<tr>
-		<th><?php echo $bcForm->label('FbLikeboxConfig.header', 'ヘッダー タイトル') ?></th>
+		<th><?php echo $bcForm->label('FbLikeboxConfig.header', 'ヘッダー タイトルの表示') ?></th>
 		<td>
 			<?php echo $bcForm->input('FbLikeboxConfig.header', array('type' => 'checkbox')) ?>
 				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpHeader', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
@@ -147,12 +230,10 @@ $(window).load(function() {
 <div class="submit">
 	<?php echo $bcForm->submit('保　存', array('div' => false, 'class' => 'button')) ?>
 </div>
-
 <?php echo $bcForm->end() ?>
 
 
 <h3>現在の表示状態</h3>
-
 <div class="align-center">
-	<div id="DataList"><?php $bcBaser->element('fb_likebox_configs/index_list') ?></div>
+	<div id="DataList"></div>
 </div>

@@ -1,13 +1,30 @@
+<?php
+/**
+ * [ADMIN] Facebook LikeBoxプラグイン ajax用 表示画面
+ *
+ * @copyright		Copyright 2011 - 2012, materializing.
+ * @link			http://www.materializing.net/
+ * @author			arata
+ * @package			fb_likebox.views
+ * @version			2.0.0
+ * @license			MIT
+ */
+?>
 <div id="fb-root"></div>
-<script src="http://connect.facebook.net/<?php echo $language[$this->data['FbLikeboxConfig']['language']] ?>/all.js#xfbml=1"></script>
-<fb:like-box href="<?php echo $this->data['FbLikeboxConfig']['page_url'] ?>" 
-			 width="<?php echo $this->data['FbLikeboxConfig']['width'] ?>" 
-			 height="<?php echo $this->data['FbLikeboxConfig']['height'] ?>" 
-			 colorscheme="<?php echo $color_scheme[$this->data['FbLikeboxConfig']['color_scheme']] ?>" 
-			 show_faces="<?php echo $show_faces[$this->data['FbLikeboxConfig']['show_faces']] ?>" 
-			 stream="<?php echo $stream[$this->data['FbLikeboxConfig']['stream']] ?>" 
-			 header="<?php echo $header[$this->data['FbLikeboxConfig']['header']] ?>" 
-			 border_color="<?php echo $this->data['FbLikeboxConfig']['border_color'] ?>">
-</fb:like-box>
-
-TEST
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/<?php echo $language[$this->data['FbLikeboxConfig']['language']] ?>/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-like-box" 
+	 data-href="<?php echo $this->data['FbLikeboxConfig']['page_url'] ?>" 
+	 data-width="<?php echo $this->data['FbLikeboxConfig']['width'] ?>" 
+	 data-height="<?php echo $this->data['FbLikeboxConfig']['height'] ?>" 
+	 data-show-faces="<?php echo $show_faces[$this->data['FbLikeboxConfig']['show_faces']] ?>" 
+	 data-colorscheme="<?php echo $color_scheme[$this->data['FbLikeboxConfig']['color_scheme']] ?>" 
+	 data-stream="<?php echo $stream[$this->data['FbLikeboxConfig']['stream']] ?>" 
+	 data-header="<?php echo $header[$this->data['FbLikeboxConfig']['header']] ?>" 
+	 data-border-color="<?php echo $this->data['FbLikeboxConfig']['border_color'] ?>">
+</div>

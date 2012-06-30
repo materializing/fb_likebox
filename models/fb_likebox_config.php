@@ -110,5 +110,22 @@ class FbLikeboxConfig extends AppModel {
 		return mb_convert_kana($str, 'a', 'UTF-8');
 
 	}
+/**
+ * フォームから文字列として取得した値を変換する
+ * 
+ * @param mixed $str
+ * @return int 
+ */
+	function convertFormValue($str) {
+
+		if($str == 'false') {
+			$str = 0;
+		} elseif($str == 'true') {
+			$str = 1;
+		}
+
+		return $str;
+
+	}
 
 }

@@ -130,34 +130,68 @@ class FbLikeboxConfigsController extends AppController {
 		$this->help = 'fb_likebox_configs_index';
 
 	}
-
-	// ajaxで呼び出される関数
+/**
+ * 設定変更中の状態をリアルタイムで確認する
+ * ajaxで呼び出される関数
+ * Ajax用のログインボックスはレイアウトを外す
+ * 
+ * @return void
+ * @access public
+ */
 	function admin_ajax_show() {
-
 		Configure::write('debug', 0);
-		$this->layout = 'ajax';
+		$this->layout = 'empty';
 
-		if($this->RequestHandler->isAjax()) {
-			
-			$data = $this->FbLikeboxConfig->findExpanded();
+		$datas = $this->FbLikeboxConfig->findExpanded();
 
-			// 返ってくる値をチェックして、空文字、FALSE、NULLの場合は0を入れる
-			$data['show_faces'] = $this->FbLikeboxConfig->checkEmpty($data['show_faces']);
-			$data['stream'] = $this->FbLikeboxConfig->checkEmpty($data['stream']);
-			$data['header'] = $this->FbLikeboxConfig->checkEmpty($data['header']);
+		if(!$this->data) {
 
-			// 選択値の設定値を取得
-			$this->set('show_faces', $this->FbLikeboxConfig->show_faces);
-			$this->set('stream', $this->FbLikeboxConfig->stream);
-			$this->set('header', $this->FbLikeboxConfig->header);
-			$this->set('color_scheme', $this->FbLikeboxConfig->color_scheme);
-			$this->set('language', $this->FbLikeboxConfig->language);
+			// DBから取得したデータを値をチェックして、空文字、FALSE、NULLの場合は0を入れる
+			$datas['show_faces'] = $this->FbLikeboxConfig->checkEmpty($datas['show_faces']);
+			$datas['stream'] = $this->FbLikeboxConfig->checkEmpty($datas['stream']);
+			$datas['header'] = $this->FbLikeboxConfig->checkEmpty($datas['header']);
 
-			$this->data = array('FbLikeboxConfig' => $data);
+		} else {
+
+			if($this->data['FbLikeboxConfig']['page_url']) {
+				$datas['page_url'] = $this->data['FbLikeboxConfig']['page_url'];
+			}
+			if($this->data['FbLikeboxConfig']['width']) {
+				$datas['width'] = $this->FbLikeboxConfig->convertNumeric($this->data['FbLikeboxConfig']['width']);
+			}
+			if($this->data['FbLikeboxConfig']['height']) {
+				$datas['height'] = $this->FbLikeboxConfig->convertNumeric($this->data['FbLikeboxConfig']['height']);
+			}
+			if($this->data['FbLikeboxConfig']['color_scheme']) {
+				$datas['color_scheme'] = $this->FbLikeboxConfig->convertFormValue($this->data['FbLikeboxConfig']['color_scheme']);
+			}
+			if($this->data['FbLikeboxConfig']['border_color']) {
+				$datas['border_color'] = $this->data['FbLikeboxConfig']['border_color'];
+			}
+			if($this->data['FbLikeboxConfig']['show_faces']) {
+				$datas['show_faces'] = $this->FbLikeboxConfig->convertFormValue($this->data['FbLikeboxConfig']['show_faces']);
+			}
+			if($this->data['FbLikeboxConfig']['stream']) {
+				$datas['stream'] = $this->FbLikeboxConfig->convertFormValue($this->data['FbLikeboxConfig']['stream']);
+			}
+			if($this->data['FbLikeboxConfig']['header']) {
+				$datas['header'] = $this->FbLikeboxConfig->convertFormValue($this->data['FbLikeboxConfig']['header']);
+			}
+			if($this->data['FbLikeboxConfig']['language']) {
+				$datas['language'] = $this->FbLikeboxConfig->convertFormValue($this->data['FbLikeboxConfig']['language']);
+			}
 
 		}
 
-		//$this->render('elements/admin/test');
+		$this->data = array('FbLikeboxConfig' => $datas);
+
+		// 選択値の設定値を取得
+		$this->set('show_faces', $this->FbLikeboxConfig->show_faces);
+		$this->set('stream', $this->FbLikeboxConfig->stream);
+		$this->set('header', $this->FbLikeboxConfig->header);
+		$this->set('color_scheme', $this->FbLikeboxConfig->color_scheme);
+		$this->set('language', $this->FbLikeboxConfig->language);
+
 	}
 
 }
