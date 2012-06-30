@@ -17,15 +17,24 @@ $data = $this->requestAction($url);
 <?php if($name && $use_title): ?>
 <h2><?php echo $name ?></h2>
 <?php endif ?>
-<div id="fb-root"></div>
-<script src="http://connect.facebook.net/<?php echo $data['language'] ?>/all.js#xfbml=1"></script>
-<fb:like-box href="<?php echo $data['page_url'] ?>" 
-			 width="<?php echo $data['width'] ?>" 
-			 height="<?php echo $data['height'] ?>" 
-			 colorscheme="<?php echo $data['color_scheme'] ?>" 
-			 show_faces="<?php echo $data['show_faces'] ?>" 
-			 stream="<?php echo $data['stream'] ?>" 
-			 header="<?php echo $data['header'] ?>" 
-			 border_color="<?php echo $data['border_color'] ?>">
-</fb:like-box>
+	<div id="fb-root"></div>
+	<?php if($data) : ?>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/<?php echo $data['language'] ?>/all.js#xfbml=1";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	<div class="fb-like-box" 
+		 data-href="<?php echo $data['page_url'] ?>" 
+		 data-width="<?php echo $data['width'] ?>" 
+		 data-height="<?php echo $data['height'] ?>" 
+		 data-show-faces="<?php echo $data['show_faces'] ?>" 
+		 data-colorscheme="<?php echo $data['color_scheme'] ?>" 
+		 data-stream="<?php echo $data['stream'] ?>" 
+		 data-header="<?php echo $data['header'] ?>" 
+		 data-border-color="<?php echo $data['border_color'] ?>">
+	</div>
+	<?php endif ?>
 </div>
