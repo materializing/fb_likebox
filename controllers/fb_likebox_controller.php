@@ -9,7 +9,7 @@
  * @version			2.0.0
  * @license			MIT
  */
-class FbLikeboxController extends AppController {
+class FbLikeboxController extends BaserPluginAppController {
 /**
  * コントローラー名
  * 
@@ -23,7 +23,7 @@ class FbLikeboxController extends AppController {
  * @var array
  * @access public
  */
-	var $uses = array('Plugin', 'FbLikebox.FbLikeboxConfig');
+	var $uses = array('FbLikebox.FbLikeboxConfig');
 /**
  * コンポーネント
  * 

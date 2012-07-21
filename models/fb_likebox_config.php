@@ -9,7 +9,7 @@
  * @version			2.0.0
  * @license			MIT
  */
-class FbLikeboxConfig extends AppModel {
+class FbLikeboxConfig extends BaserPluginAppModel {
 /**
  * モデル名
  * @var string
@@ -22,12 +22,6 @@ class FbLikeboxConfig extends AppModel {
  * @access public
  */
 	var $plugin = 'FbLikebox';
-/**
- * DB設定
- * @var string
- * @access public
- */
-	var $useDbConfig = 'plugin';
 /**
  * バリデーション
  *
