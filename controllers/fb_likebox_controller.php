@@ -2,11 +2,9 @@
 /**
  * Facebook LikeBoxプラグイン表示コントローラー
  *
- * @copyright		Copyright 2011 - 2012, materializing.
  * @link			http://www.materializing.net/
  * @author			arata
- * @package			fb_likebox.controllers
- * @version			2.0.0
+ * @package			fb_likebox
  * @license			MIT
  */
 class FbLikeboxController extends BaserPluginAppController {

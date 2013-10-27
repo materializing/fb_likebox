@@ -2,11 +2,9 @@
 /**
  * [ADMIN] Facebook LikeBoxプラグイン設定画面 ヘルプ
  *
- * @copyright		Copyright 2012, materializing.
  * @link			http://www.materializing.net/
  * @author			arata
- * @package			fb_likebox.views
- * @version			2.0.0
+ * @package			fb_likebox
  * @license			MIT
  */
 ?>

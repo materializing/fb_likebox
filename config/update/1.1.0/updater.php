@@ -14,13 +14,10 @@
  * ClassRegistry を利用せず、モデルクラスを直接イニシャライズしないと、
  * スキーマのキャッシュが古いままとなるので注意が必要です。
  *
- * @copyright		Copyright 2011, materializing.
  * @link			http://www.materializing.net/
  * @author			arata
- * @package			fb_likebox.config.update
- * @since			Baser v 1.6.11.2
- * @version			1.1.0
- * @license			GPL
+ * @package			fb_likebox
+ * @license			MIT
  */
  /**
  * ----------------------------------------
