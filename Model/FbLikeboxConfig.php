@@ -7,26 +7,25 @@
  * @package			fb_likebox
  * @license			MIT
  */
-class FbLikeboxConfig extends BaserPluginAppModel {
+class FbLikeboxConfig extends BcPluginAppModel {
 /**
  * モデル名
  * @var string
- * @access public
  */
-	var $name = 'FbLikeboxConfig';
+	public $name = 'FbLikeboxConfig';
+	
 /**
  * プラグイン名
  * @var string
- * @access public
  */
-	var $plugin = 'FbLikebox';
+	public $plugin = 'FbLikebox';
+	
 /**
  * バリデーション
  *
  * @var array
- * @access public
  */
-	var $validate = array(
+	public $validate = array(
 			'page_url'	=> array(
 				array(
 					'rule'		=>	'notEmpty',
@@ -52,25 +51,25 @@ class FbLikeboxConfig extends BaserPluginAppModel {
 				'message'		=>	'半角英字で入力して下さい。'
 			)
 	);
+	
 /**
  * 表示設定値
  *
  * @var array
- * @access public
  */
-	var $color_scheme = array(
+	public $color_scheme = array(
 		'1'		=>	'light',
 		'2'		=>	'dark'
 	);
-	var $show_faces = array(
+	public $show_faces = array(
 		'0'		=>	'false',
 		'1'		=>	'true'
 	);
-	var $stream = array(
+	public $stream = array(
 		'0'		=>	'false',
 		'1'		=>	'true'
 	);
-	var $header = array(
+	public $header = array(
 		'0'		=>	'false',
 		'1'		=>	'true'
 	);
@@ -78,18 +77,20 @@ class FbLikeboxConfig extends BaserPluginAppModel {
 		'1'		=>	'ja_JP',
 		'2'		=>	'en_US'
 	);
+	
 /**
  * チェックして、空文字、FALSE、NULL なら0を返す
  *
  * @param int $param
  * @return int
  */
-	function checkEmpty($param) {
+	public function checkEmpty($param) {
 		if(!$param) {
 			$param = 0;
 		}
 		return $param;
 	}
+	
 /**
  * 全角文字を半角に変換して返す
  * ※ 全角数字で入力があった場合はそれを許容するため
@@ -97,27 +98,23 @@ class FbLikeboxConfig extends BaserPluginAppModel {
  * @param mixed $str
  * @return string
  */
-	function convertNumeric($str) {
-
+	public function convertNumeric($str) {
 		return mb_convert_kana($str, 'a', 'UTF-8');
-
 	}
+	
 /**
  * フォームから文字列として取得した値を変換する
  * 
  * @param mixed $str
  * @return int 
  */
-	function convertFormValue($str) {
-
+	public function convertFormValue($str) {
 		if($str == 'false') {
 			$str = 0;
 		} elseif($str == 'true') {
 			$str = 1;
 		}
-
 		return $str;
-
 	}
-
+	
 }

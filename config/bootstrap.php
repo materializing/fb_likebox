@@ -7,4 +7,4 @@
  * @package			fb_likebox
  * @license			MIT
  */
-loadPluginConfig('fb_likebox.fb_likebox');
+loadPluginConfig('FbLikebox.fb_likebox');

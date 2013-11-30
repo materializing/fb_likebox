@@ -12,7 +12,7 @@
 	<th>Facebook LikeBox管理メニュー</th>
 	<td>
 		<ul>
-			<li><?php $bcBaser->link('Facebook LikeBoxプラグイン設定',array('controller' => 'fb_likebox_configs', 'action'=>'index')) ?></li>
+			<li><?php $this->BcBaser->link('Facebook LikeBoxプラグイン設定',array('controller' => 'fb_likebox_configs', 'action'=>'index')) ?></li>
 		</ul>
 	</td>
 </tr>

@@ -94,17 +94,17 @@ function fbLikeboxValueChengeHandler() {
 </script>
 
 <div class="display-none">
-	<div id="AjaxShowUrl"><?php $bcBaser->url(array('action' => 'ajax_show')) ?></div>
+	<div id="AjaxShowUrl"><?php $this->BcBaser->url(array('action' => 'ajax_show')) ?></div>
 </div>
 
-<?php echo $bcForm->create('FbLikeboxConfig', array('action' => 'index')) ?>
+<?php echo $this->BcForm->create('FbLikeboxConfig', array('action' => 'index')) ?>
 <table cellpadding="0" cellspacing="0" class="list-table" id="ListTable">
 	<tr>
-		<th><span class="required">*</span>&nbsp;<?php echo $bcForm->label('FbLikeboxConfig.page_url', 'ページURL') ?></th>
+		<th><span class="required">*</span>&nbsp;<?php echo $this->BcForm->label('FbLikeboxConfig.page_url', 'ページURL') ?></th>
 		<td>
-			<?php echo $bcForm->input('FbLikeboxConfig.page_url', array('type' => 'text', 'size' => '66')) ?>
-				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpPageUrl', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
-					<?php echo $bcForm->error('FbLikeboxConfig.page_url') ?>
+			<?php echo $this->BcForm->input('FbLikeboxConfig.page_url', array('type' => 'text', 'size' => '66')) ?>
+				<?php echo $this->Html->image('admin/icn_help.png', array('id' => 'helpPageUrl', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
+					<?php echo $this->BcForm->error('FbLikeboxConfig.page_url') ?>
 					<div id="helptextPageUrl" class="helptext">
 						<ul>
 							<li>リンク先となるFacebookページのURLを指定します。</li>
@@ -113,11 +113,11 @@ function fbLikeboxValueChengeHandler() {
 		</td>
 	</tr>
 	<tr>
-		<th><?php echo $bcForm->label('FbLikeboxConfig.width', '横幅サイズ') ?></th>
+		<th><?php echo $this->BcForm->label('FbLikeboxConfig.width', '横幅サイズ') ?></th>
 		<td>
-			<?php echo $bcForm->input('FbLikeboxConfig.width', array('type' => 'text', 'size' => '8')) ?> px
-				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpWidth', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
-					<?php echo $bcForm->error('FbLikeboxConfig.width') ?>
+			<?php echo $this->BcForm->input('FbLikeboxConfig.width', array('type' => 'text', 'size' => '8')) ?> px
+				<?php echo $this->Html->image('admin/icn_help.png', array('id' => 'helpWidth', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
+					<?php echo $this->BcForm->error('FbLikeboxConfig.width') ?>
 					<div id="helptextWidth" class="helptext">
 						<ul>
 							<li>表示する幅をピクセル単位で指定します。</li>
@@ -127,11 +127,11 @@ function fbLikeboxValueChengeHandler() {
 		</td>
 	</tr>
 	<tr>
-		<th><?php echo $bcForm->label('FbLikeboxConfig.width', '高さサイズ') ?></th>
+		<th><?php echo $this->BcForm->label('FbLikeboxConfig.width', '高さサイズ') ?></th>
 		<td>
-			<?php echo $bcForm->input('FbLikeboxConfig.height', array('type' => 'text', 'size' => '8')) ?> px
-				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpHeight', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
-					<?php echo $bcForm->error('FbLikeboxConfig.height') ?>
+			<?php echo $this->BcForm->input('FbLikeboxConfig.height', array('type' => 'text', 'size' => '8')) ?> px
+				<?php echo $this->Html->image('admin/icn_help.png', array('id' => 'helpHeight', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
+					<?php echo $this->BcForm->error('FbLikeboxConfig.height') ?>
 					<div id="helptextHeight" class="helptext">
 						<ul>
 							<li>表示する高さをピクセル単位で指定します。</li>
@@ -141,11 +141,11 @@ function fbLikeboxValueChengeHandler() {
 		</td>
 	</tr>
 	<tr>
-		<th><?php echo $bcForm->label('FbLikeboxConfig.color_scheme', '色の指定') ?></th>
+		<th><?php echo $this->BcForm->label('FbLikeboxConfig.color_scheme', '色の指定') ?></th>
 		<td>
-			<?php echo $bcForm->input('FbLikeboxConfig.color_scheme', array('type' => 'select', 'options' => $color_scheme)) ?>
-				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpColorScheme', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
-					<?php echo $bcForm->error('FbLikeboxConfig.color_scheme') ?>
+			<?php echo $this->BcForm->input('FbLikeboxConfig.color_scheme', array('type' => 'select', 'options' => $color_scheme)) ?>
+				<?php echo $this->Html->image('admin/icn_help.png', array('id' => 'helpColorScheme', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
+					<?php echo $this->BcForm->error('FbLikeboxConfig.color_scheme') ?>
 					<div id="helptextColorScheme" class="helptext">
 						<ul>
 							<li>表示する色を指定します。</li>
@@ -155,11 +155,11 @@ function fbLikeboxValueChengeHandler() {
 		</td>
 	</tr>
 	<tr>
-		<th><?php echo $bcForm->label('FbLikeboxConfig.border_color', '枠線の色') ?></th>
+		<th><?php echo $this->BcForm->label('FbLikeboxConfig.border_color', '枠線の色') ?></th>
 		<td>
-			<?php echo $bcForm->input('FbLikeboxConfig.border_color', array('type' => 'text', 'size' => '8')) ?>
-				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpBorderColor', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
-					<?php echo $bcForm->error('FbLikeboxConfig.border_color') ?>
+			<?php echo $this->BcForm->input('FbLikeboxConfig.border_color', array('type' => 'text', 'size' => '8')) ?>
+				<?php echo $this->Html->image('admin/icn_help.png', array('id' => 'helpBorderColor', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
+					<?php echo $this->BcForm->error('FbLikeboxConfig.border_color') ?>
 					<div id="helptextBorderColor" class="helptext">
 						<ul>
 							<li>表示する枠線の色を、半角英字の色名で指定します。</li>
@@ -170,11 +170,11 @@ function fbLikeboxValueChengeHandler() {
 		</td>
 	</tr>
 	<tr>
-		<th><?php echo $bcForm->label('FbLikeboxConfig.show_faces', '顔アイコンの表示') ?></th>
+		<th><?php echo $this->BcForm->label('FbLikeboxConfig.show_faces', '顔アイコンの表示') ?></th>
 		<td>
-			<?php echo $bcForm->input('FbLikeboxConfig.show_faces', array('type' => 'checkbox')) ?>
-				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpShowFaces', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
-					<?php echo $bcForm->error('FbLikeboxConfig.show_faces') ?>
+			<?php echo $this->BcForm->input('FbLikeboxConfig.show_faces', array('type' => 'checkbox')) ?>
+				<?php echo $this->Html->image('admin/icn_help.png', array('id' => 'helpShowFaces', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
+					<?php echo $this->BcForm->error('FbLikeboxConfig.show_faces') ?>
 					<div id="helptextShowFaces" class="helptext">
 						<ul>
 							<li>プロフィールの写真を表示するかどうかを指定します。</li>
@@ -183,11 +183,11 @@ function fbLikeboxValueChengeHandler() {
 		</td>
 	</tr>
 	<tr>
-		<th><?php echo $bcForm->label('FbLikeboxConfig.stream', 'ストリームの表示') ?></th>
+		<th><?php echo $this->BcForm->label('FbLikeboxConfig.stream', 'ストリームの表示') ?></th>
 		<td>
-			<?php echo $bcForm->input('FbLikeboxConfig.stream', array('type' => 'checkbox')) ?>
-				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpStream', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
-					<?php echo $bcForm->error('FbLikeboxConfig.stream') ?>
+			<?php echo $this->BcForm->input('FbLikeboxConfig.stream', array('type' => 'checkbox')) ?>
+				<?php echo $this->Html->image('admin/icn_help.png', array('id' => 'helpStream', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
+					<?php echo $this->BcForm->error('FbLikeboxConfig.stream') ?>
 					<div id="helptextStream" class="helptext">
 						<ul>
 							<li>ページのウォールから最新の記事(ストリーム)を表示するかどうかを指定します。</li>
@@ -196,11 +196,11 @@ function fbLikeboxValueChengeHandler() {
 		</td>
 	</tr>
 	<tr>
-		<th><?php echo $bcForm->label('FbLikeboxConfig.header', 'ヘッダー タイトルの表示') ?></th>
+		<th><?php echo $this->BcForm->label('FbLikeboxConfig.header', 'ヘッダー タイトルの表示') ?></th>
 		<td>
-			<?php echo $bcForm->input('FbLikeboxConfig.header', array('type' => 'checkbox')) ?>
-				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpHeader', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
-					<?php echo $bcForm->error('FbLikeboxConfig.header') ?>
+			<?php echo $this->BcForm->input('FbLikeboxConfig.header', array('type' => 'checkbox')) ?>
+				<?php echo $this->Html->image('admin/icn_help.png', array('id' => 'helpHeader', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
+					<?php echo $this->BcForm->error('FbLikeboxConfig.header') ?>
 					<div id="helptextHeader" class="helptext">
 						<ul>
 							<li>表示枠上部のヘッダー部分で、Facebook表示を行うかどうかを指定します。</li>
@@ -209,11 +209,11 @@ function fbLikeboxValueChengeHandler() {
 		</td>
 	</tr>
 	<tr>
-		<th><?php echo $bcForm->label('FbLikeboxConfig.language', '表示言語') ?></th>
+		<th><?php echo $this->BcForm->label('FbLikeboxConfig.language', '表示言語') ?></th>
 		<td>
-			<?php echo $bcForm->input('FbLikeboxConfig.language', array('type' => 'select', 'options' => $language)) ?>
-				<?php echo $html->image('admin/icn_help.png', array('id' => 'helpLanguage', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
-					<?php echo $bcForm->error('FbLikeboxConfig.language') ?>
+			<?php echo $this->BcForm->input('FbLikeboxConfig.language', array('type' => 'select', 'options' => $language)) ?>
+				<?php echo $this->Html->image('admin/icn_help.png', array('id' => 'helpLanguage', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
+					<?php echo $this->BcForm->error('FbLikeboxConfig.language') ?>
 					<div id="helptextLanguage" class="helptext">
 						<ul>
 							<li>表示する言語を指定します。</li>
@@ -226,9 +226,9 @@ function fbLikeboxValueChengeHandler() {
 </table>
 
 <div class="submit">
-	<?php echo $bcForm->submit('保　存', array('div' => false, 'class' => 'button')) ?>
+	<?php echo $this->BcForm->submit('保　存', array('div' => false, 'class' => 'button')) ?>
 </div>
-<?php echo $bcForm->end() ?>
+<?php echo $this->BcForm->end() ?>
 
 
 <h3>現在の表示状態</h3>

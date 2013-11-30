@@ -9,7 +9,7 @@
  */
 ?>
 <p>サイトに表示するFacebook Likeboxの設定を行います。<br />
-	各項目のヘルプメッセージもご参照下さい。→ このアイコンをクリックでメッセージ ポップアップ <?php echo $html->image('admin/icn_help.png',array('class' => 'btn help', 'alt' => 'ヘルプ')) ?></p>
+	各項目のヘルプメッセージもご参照下さい。→ このアイコンをクリックでメッセージ ポップアップ <?php echo $this->Html->image('admin/icn_help.png',array('class' => 'btn help', 'alt' => 'ヘルプ')) ?></p>
 <ul>
 	<li>Facebookアカウントの取得が前提です。また、事前にファンページ(ページ)を取得し、そのページのURLを取得しておいて下さい。 => <a href="http://www.facebook.com/" target="_blank">Facebook</a></li>
 	<li>保存した内容は、ページ下部の「現在の表示状態」にて確認出来ます。</li>
