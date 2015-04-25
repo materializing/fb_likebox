@@ -70,14 +70,17 @@ class FbLikeboxConfigsController extends BcPluginAppController {
 			$this->FbLikeboxConfig->set($this->request->data);
 			if($this->FbLikeboxConfig->validates()) {
 				if($this->FbLikeboxConfig->saveKeyValue($this->request->data)) {
-					$this->Session->setFlash('保存しました。');
+					$message = '保存しました。';
+					$this->setMessage($message);
 					$this->redirect(array('action' => 'index'));
 				} else {
-					$this->Session->setFlash('保存に失敗しました。');
+					$message = '保存に失敗しました。';
+					$this->setMessage($message, true);
 					$this->redirect(array('action' => 'index'));
 				}
 			} else {
-				$this->Session->setFlash('入力値にエラーがあります。');
+				$message = '入力値にエラーがあります。';
+				$this->setMessage($message, true);
 			}
 		}
 		
