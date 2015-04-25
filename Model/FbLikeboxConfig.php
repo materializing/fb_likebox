@@ -46,10 +46,6 @@ class FbLikeboxConfig extends BcPluginAppModel {
 				'message'		=>	'半角数字で入力して下さい。',
 				'allowEmpty'	=> true
 			),
-			'border_color'	=> array(
-				'rule'			=>	'halfText',
-				'message'		=>	'半角英字で入力して下さい。'
-			)
 	);
 	
 /**
@@ -57,10 +53,6 @@ class FbLikeboxConfig extends BcPluginAppModel {
  *
  * @var array
  */
-	public $color_scheme = array(
-		'1'		=>	'light',
-		'2'		=>	'dark'
-	);
 	public $show_faces = array(
 		'0'		=>	'false',
 		'1'		=>	'true'

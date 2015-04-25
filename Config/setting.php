@@ -17,3 +17,7 @@ $config['BcApp.adminNavi.fb_likebox'] = array(
 				'url' => array('admin' => true, 'plugin' => 'fb_likebox', 'controller' => 'fb_likebox_configs', 'action' => 'index'))
 	)
 );
+
+$config['FbLikebox'] = array(
+	'sdk_version' => 'v2.3',
+);

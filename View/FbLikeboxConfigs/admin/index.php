@@ -14,83 +14,19 @@ $(window).load(function() {
 });
 
 $(function() {
-	$("#FbLikeboxConfigPageUrl").change(function() {
-		fbLikeboxValueChengeHandler();
-	});
-	$("#FbLikeboxConfigWidth").change(function() {
-		fbLikeboxValueChengeHandler();
-	});
-	$("#FbLikeboxConfigHeight").change(function() {
-		fbLikeboxValueChengeHandler();
-	});
-	$("#FbLikeboxConfigColorScheme").change(function() {
-		fbLikeboxValueChengeHandler();
-	});
-	$("#FbLikeboxConfigBorderColor").change(function() {
-		fbLikeboxValueChengeHandler();
-	});
-	$("#FbLikeboxConfigShowFaces").change(function() {
-		fbLikeboxValueChengeHandler();
-	});
-	$("#FbLikeboxConfigStream").change(function() {
-		fbLikeboxValueChengeHandler();
-	});
-	$("#FbLikeboxConfigHeader").change(function() {
-		fbLikeboxValueChengeHandler();
-	});
-	$("#FbLikeboxConfigLanguage").change(function() {
-		fbLikeboxValueChengeHandler();
-	});
-
 	$.ajax({
 		type: "GET",
 		url: $("#AjaxShowUrl").html(),
 		dataType: "html",
 		cache: false,
 		success: function(result) {
-			if(result) {
-				result = result;
-			} else {
+			if (!result) {
 				result = '取得できませんでした。';
 			}
 			$("#DataList").html(result);
 		}
 	});
 });
-
-function fbLikeboxValueChengeHandler() {
-
-	var options = {};
-	options = {
-		"data[FbLikeboxConfig][page_url]": $("#FbLikeboxConfigPageUrl").val(),
-		"data[FbLikeboxConfig][width]": $("#FbLikeboxConfigWidth").val(),
-		"data[FbLikeboxConfig][height]": $("#FbLikeboxConfigHeight").val(),
-		"data[FbLikeboxConfig][color_scheme]": $("#FbLikeboxConfigColorScheme option:selected").val(),
-		"data[FbLikeboxConfig][border_color]": $("#FbLikeboxConfigBorderColor").val(),
-		"data[FbLikeboxConfig][show_faces]": $("#FbLikeboxConfigShowFaces").prop('checked'),
-		"data[FbLikeboxConfig][stream]": $("#FbLikeboxConfigStream").prop('checked'),
-		"data[FbLikeboxConfig][header]": $("#FbLikeboxConfigHeader").prop('checked'),
-		"data[FbLikeboxConfig][language]": $("#FbLikeboxConfigLanguage option:selected").val()
-	};
-	$.ajax({
-		type: "POST",
-		data: options,
-		url: $("#AjaxShowUrl").html(),
-		success: function(result) {
-			if(result) {
-				$("#DataList").html(result);
-			} else {
-				result = '取得できませんでした。';
-			}
-			$("#DataList").html(result);
-			// FB.init しないと取得後の表示ができないっぽい
-			FB.init({
-				xfbml : true
-			});
-		}
-	});
-
-}
 </script>
 
 <div class="display-none">
@@ -100,8 +36,8 @@ function fbLikeboxValueChengeHandler() {
 <?php echo $this->BcForm->create('FbLikeboxConfig', array('action' => 'index')) ?>
 <table cellpadding="0" cellspacing="0" class="list-table" id="ListTable">
 	<tr>
-		<th><span class="required">*</span>&nbsp;<?php echo $this->BcForm->label('FbLikeboxConfig.page_url', 'ページURL') ?></th>
-		<td>
+		<th><?php echo $this->BcForm->label('FbLikeboxConfig.page_url', 'ページURL') ?>&nbsp;<span class="required">*</span></th>
+		<td colspan="3">
 			<?php echo $this->BcForm->input('FbLikeboxConfig.page_url', array('type' => 'text', 'size' => '66')) ?>
 				<?php echo $this->Html->image('admin/icn_help.png', array('id' => 'helpPageUrl', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
 					<?php echo $this->BcForm->error('FbLikeboxConfig.page_url') ?>
@@ -110,6 +46,19 @@ function fbLikeboxValueChengeHandler() {
 							<li>リンク先となるFacebookページのURLを指定します。</li>
 						</ul>
 					</div>
+		</td>
+	</tr>
+	<tr>
+		<th><?php echo $this->BcForm->label('FbLikeboxConfig.title', 'ページ名') ?></th>
+		<td colspan="3">
+			<?php echo $this->BcForm->input('FbLikeboxConfig.title', array('type' => 'text', 'size' => '66', 'placeholder' => 'Facebook')) ?>
+			<?php echo $this->BcBaser->img('admin/icn_help.png', array('id' => 'helpTitle', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
+			<?php echo $this->BcForm->error('FbLikeboxConfig.title') ?>
+			<div id="helptextTitle" class="helptext">
+				<ul>
+					<li>Facebookがダウンしている等、なんらかの理由によりPagePluginが表示できない場合に表示するテキストリンク用のテキストを指定できます。</li>
+				</ul>
+			</div>
 		</td>
 	</tr>
 	<tr>
@@ -125,8 +74,6 @@ function fbLikeboxValueChengeHandler() {
 						</ul>
 					</div>
 		</td>
-	</tr>
-	<tr>
 		<th><?php echo $this->BcForm->label('FbLikeboxConfig.width', '高さサイズ') ?></th>
 		<td>
 			<?php echo $this->BcForm->input('FbLikeboxConfig.height', array('type' => 'text', 'size' => '8')) ?> px
@@ -136,35 +83,6 @@ function fbLikeboxValueChengeHandler() {
 						<ul>
 							<li>表示する高さをピクセル単位で指定します。</li>
 							<li>初期表示、及び入力がない時の表示高さは427px(ピクセル)になります。</li>
-						</ul>
-					</div>
-		</td>
-	</tr>
-	<tr>
-		<th><?php echo $this->BcForm->label('FbLikeboxConfig.color_scheme', '色の指定') ?></th>
-		<td>
-			<?php echo $this->BcForm->input('FbLikeboxConfig.color_scheme', array('type' => 'select', 'options' => $color_scheme)) ?>
-				<?php echo $this->Html->image('admin/icn_help.png', array('id' => 'helpColorScheme', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
-					<?php echo $this->BcForm->error('FbLikeboxConfig.color_scheme') ?>
-					<div id="helptextColorScheme" class="helptext">
-						<ul>
-							<li>表示する色を指定します。</li>
-							<li>light：白(透明・背景色なし)、dark：黒</li>
-						</ul>
-					</div>
-		</td>
-	</tr>
-	<tr>
-		<th><?php echo $this->BcForm->label('FbLikeboxConfig.border_color', '枠線の色') ?></th>
-		<td>
-			<?php echo $this->BcForm->input('FbLikeboxConfig.border_color', array('type' => 'text', 'size' => '8')) ?>
-				<?php echo $this->Html->image('admin/icn_help.png', array('id' => 'helpBorderColor', 'class' => 'btn help', 'alt' => 'ヘルプ')) ?>
-					<?php echo $this->BcForm->error('FbLikeboxConfig.border_color') ?>
-					<div id="helptextBorderColor" class="helptext">
-						<ul>
-							<li>表示する枠線の色を、半角英字の色名で指定します。</li>
-							<li>例：red、black、green、#000000、#CC0000　などなど。</li>
-							<li>初期表示、及び入力がない時の色は薄い灰色になります。</li>
 						</ul>
 					</div>
 		</td>
@@ -181,8 +99,6 @@ function fbLikeboxValueChengeHandler() {
 						</ul>
 					</div>
 		</td>
-	</tr>
-	<tr>
 		<th><?php echo $this->BcForm->label('FbLikeboxConfig.stream', 'ストリームの表示') ?></th>
 		<td>
 			<?php echo $this->BcForm->input('FbLikeboxConfig.stream', array('type' => 'checkbox')) ?>
@@ -207,8 +123,6 @@ function fbLikeboxValueChengeHandler() {
 						</ul>
 					</div>
 		</td>
-	</tr>
-	<tr>
 		<th><?php echo $this->BcForm->label('FbLikeboxConfig.language', '表示言語') ?></th>
 		<td>
 			<?php echo $this->BcForm->input('FbLikeboxConfig.language', array('type' => 'select', 'options' => $language)) ?>

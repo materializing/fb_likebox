@@ -88,7 +88,6 @@ class FbLikeboxConfigsController extends BcPluginAppController {
 		$this->set('show_faces', $this->FbLikeboxConfig->show_faces);
 		$this->set('stream', $this->FbLikeboxConfig->stream);
 		$this->set('header', $this->FbLikeboxConfig->header);
-		$this->set('color_scheme', $this->FbLikeboxConfig->color_scheme);
 		$this->set('language', $this->FbLikeboxConfig->language);
 		
 		$this->pageTitle = 'Facebook LikeBoxプラグイン設定';
@@ -122,12 +121,6 @@ class FbLikeboxConfigsController extends BcPluginAppController {
 			if($this->request->data['FbLikeboxConfig']['height']) {
 				$datas['height'] = $this->FbLikeboxConfig->convertNumeric($this->request->data['FbLikeboxConfig']['height']);
 			}
-			if($this->request->data['FbLikeboxConfig']['color_scheme']) {
-				$datas['color_scheme'] = $this->FbLikeboxConfig->convertFormValue($this->request->data['FbLikeboxConfig']['color_scheme']);
-			}
-			if($this->request->data['FbLikeboxConfig']['border_color']) {
-				$datas['border_color'] = $this->request->data['FbLikeboxConfig']['border_color'];
-			}
 			if($this->request->data['FbLikeboxConfig']['show_faces']) {
 				$datas['show_faces'] = $this->FbLikeboxConfig->convertFormValue($this->request->data['FbLikeboxConfig']['show_faces']);
 			}
@@ -147,7 +140,6 @@ class FbLikeboxConfigsController extends BcPluginAppController {
 		$this->set('show_faces', $this->FbLikeboxConfig->show_faces);
 		$this->set('stream', $this->FbLikeboxConfig->stream);
 		$this->set('header', $this->FbLikeboxConfig->header);
-		$this->set('color_scheme', $this->FbLikeboxConfig->color_scheme);
 		$this->set('language', $this->FbLikeboxConfig->language);
 	}
 	

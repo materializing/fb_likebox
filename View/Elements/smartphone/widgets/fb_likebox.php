@@ -7,32 +7,34 @@
  * @package			FbLikebox
  * @license			MIT
  */
-$FbLikeboxConfig = ClassRegistry::init('FbLikebox.FbLikeboxConfig');
-$url = '/fb_likebox/fb_likebox/get_fb_likebox';
-$data = $this->requestAction($url);
+$data = $this->FbLikebox->getFbLikebox();
 ?>
 <div class="widget widget-fb_likebox widget-fb_likebox-<?php echo $id ?>">
 <?php if($name && $use_title): ?>
 <h2><?php echo $name ?></h2>
 <?php endif ?>
-	<div id="fb-root"></div>
 	<?php if($data) : ?>
-	<script>(function(d, s, id) {
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (d.getElementById(id)) return;
-		js = d.createElement(s); js.id = id;
-		js.src = "//connect.facebook.net/<?php echo $data['language'] ?>/all.js#xfbml=1";
-		fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
-	<div class="fb-like-box" 
-		 data-href="<?php echo $data['page_url'] ?>" 
-		 data-width="<?php echo $data['width'] ?>" 
-		 data-height="<?php echo $data['height'] ?>" 
-		 data-show-faces="<?php echo $data['show_faces'] ?>" 
-		 data-colorscheme="<?php echo $data['color_scheme'] ?>" 
-		 data-stream="<?php echo $data['stream'] ?>" 
-		 data-header="<?php echo $data['header'] ?>" 
-		 data-border-color="<?php echo $data['border_color'] ?>">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/<?php echo $data['FbLikebox']['language'] ?>/sdk.js#xfbml=1&version=<?php echo h(Configure::read('FbLikebox.sdk_version')) ?>";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="fb-page" 
+	 data-href="<?php echo $data['FbLikebox']['page_url'] ?>" 
+	 data-width="<?php echo $data['FbLikebox']['width'] ?>" 
+	 data-height="<?php echo $data['FbLikebox']['height'] ?>" 
+	 data-hide-cover="<?php echo $data['FbLikebox']['header'] ?>" 
+	 data-show-facepile="<?php echo $data['FbLikebox']['show_faces'] ?>" 
+	 data-show-posts="<?php echo $data['FbLikebox']['stream'] ?>">
+	<div class="fb-xfbml-parse-ignore">
+		<blockquote cite="<?php echo $data['FbLikebox']['page_url'] ?>">
+			<a href="<?php echo $data['FbLikebox']['page_url'] ?>"><?php echo $data['FbLikebox']['title'] ?></a>
+		</blockquote>
 	</div>
+</div>
 	<?php endif ?>
 </div>

@@ -73,17 +73,14 @@ class FbLikeboxController extends BcPluginAppController {
 		$show_faces = $this->FbLikeboxConfig->show_faces;
 		$stream = $this->FbLikeboxConfig->stream;
 		$header = $this->FbLikeboxConfig->header;
-		$color_scheme = $this->FbLikeboxConfig->color_scheme;
 		$language = $this->FbLikeboxConfig->language;
 		
 		$data['show_faces'] = $show_faces[$data['show_faces']];
 		$data['stream'] = $stream[$data['stream']];
 		$data['header'] = $header[$data['header']];
-		$data['color_scheme'] = $color_scheme[$data['color_scheme']];
 		$data['language'] = $language[$data['language']];
 		
 		return $data;
-		
 	}
 	
 }
