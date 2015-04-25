@@ -4,7 +4,7 @@
  *
  * @link			http://www.materializing.net/
  * @author			arata
- * @package			fb_likebox
+ * @package			FbLikebox
  * @license			MIT
  */
 $FbLikeboxConfig = ClassRegistry::init('FbLikebox.FbLikeboxConfig');
