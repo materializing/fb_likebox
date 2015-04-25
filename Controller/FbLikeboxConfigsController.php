@@ -28,14 +28,7 @@ class FbLikeboxConfigsController extends BcPluginAppController {
  * 
  * @var     array
  */
-	public $components = array('BcAuth','Cookie','BcAuthConfigure', 'RequestHandler');
-	
-/**
- * ヘルパー
- * 
- * @var array
- */
-	public $helpers = array('BcForm');
+	public $components = array('BcAuth', 'Cookie', 'BcAuthConfigure', 'RequestHandler');
 	
 /**
  * サブメニューエレメント
@@ -53,17 +46,6 @@ class FbLikeboxConfigsController extends BcPluginAppController {
 		array('name' => 'プラグイン管理', 'url' => array('plugin' => '', 'controller' => 'plugins', 'action' => 'index')),
 		array('name' => 'Facebook LikeBox管理', 'url' => array('plugin' => 'fb_likebox', 'controller' => 'fb_likebox_configs', 'action' => 'index'))
 	);
-	
-/**
- * beforeFilter
- * 
- * @return void
- */
-	public function beforeFilter(){
-		parent::beforeFilter();
-		// 指定なしの場合、正常にユーザー制限が掛からないので注意
-		// $this->BcAuth->allow();
-	}
 	
 /**
  * Facebook LikeBoxプラグイン設定

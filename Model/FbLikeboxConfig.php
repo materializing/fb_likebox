@@ -85,7 +85,7 @@ class FbLikeboxConfig extends BcPluginAppModel {
  * @return int
  */
 	public function checkEmpty($param) {
-		if(!$param) {
+		if (!$param) {
 			$param = 0;
 		}
 		return $param;
@@ -109,9 +109,9 @@ class FbLikeboxConfig extends BcPluginAppModel {
  * @return int 
  */
 	public function convertFormValue($str) {
-		if($str == 'false') {
+		if ($str == 'false') {
 			$str = 0;
-		} elseif($str == 'true') {
+		} elseif ($str == 'true') {
 			$str = 1;
 		}
 		return $str;

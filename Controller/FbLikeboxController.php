@@ -28,7 +28,7 @@ class FbLikeboxController extends BcPluginAppController {
  * 
  * @var     array
  */
-	public $components = array('BcAuth','Cookie','BcAuthConfigure');
+	public $components = array('BcAuth', 'Cookie', 'BcAuthConfigure');
 	
 /**
  * サブメニューエレメント
