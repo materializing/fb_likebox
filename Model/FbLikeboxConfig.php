@@ -21,6 +21,13 @@ class FbLikeboxConfig extends BcPluginAppModel {
 	public $plugin = 'FbLikebox';
 	
 /**
+ * actsAs
+ * 
+ * @var array
+ */
+	public $actsAs = array('BcCache');
+	
+/**
  * バリデーション
  *
  * @var array
